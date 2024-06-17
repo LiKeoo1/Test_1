@@ -1,0 +1,2723 @@
+Csky GNU Linker
+
+======================================================================
+
+Section Cross References
+
+	wm_system.c.obj(.text.wm_start_task) refers to main.c.obj(.text.startup.main) for main
+	startup.S.obj(.text) refers to cpu_init.c.obj(.text.cpu_init) for cpu_init
+	puts.o(.text) refers to libc_port.c.obj(.text.fputc) for fputc
+	vprintf_required.o(.text) refers to libc_port.c.obj(.text.fputc) for fputc
+	fputs.o(.text) refers to libc_port.c.obj(.text.fputc) for fputc
+	putc.o(.text) refers to libc_port.c.obj(.text.fputc) for fputc
+	cpu_init.c.obj(.text.cpu_init) refers to libc_port.c.obj(.text.cxx_system_init) for cxx_system_init
+	wm_drv_fls.c.obj(.text.wm_drv_fls_init) refers to wm_osal.c.obj(.text.wm_os_mutex_create) for wm_os_mutex_create
+	wm_drv_fls.c.obj(.text.wm_drv_fls_init) refers to wm_osal.c.obj(.text.wm_os_mutex_delete) for wm_os_mutex_delete
+	wm_drv_fls.c.obj(.text.wm_drv_fls_read) refers to wm_osal.c.obj(.text.wm_os_mutex_acquire) for wm_os_mutex_acquire
+	wm_stub_drv.c.obj(.text.tls_crypto_md5_init) refers to wm_osal.c.obj(.text.wm_os_sem_create) for wm_os_sem_create
+	elog_port.c.obj(.text.elog_port_init) refers to wm_osal.c.obj(.text.wm_os_sem_create) for wm_os_sem_create
+	wm_stub_drv.c.obj(.text.tls_crypto_sem_lock) refers to wm_osal.c.obj(.text.wm_os_sem_acquire) for wm_os_sem_acquire
+	elog_port.c.obj(.text.elog_port_output_lock) refers to wm_osal.c.obj(.text.wm_os_sem_acquire) for wm_os_sem_acquire
+	wm_osal.c.obj(.text.wm_os_mutex_release) refers to wm_osal.c.obj(.text.wm_os_sem_release) for wm_os_sem_release
+	wm_stub_drv.c.obj(.text.tls_crypto_sem_unlock) refers to wm_osal.c.obj(.text.wm_os_sem_release) for wm_os_sem_release
+	elog_port.c.obj(.text.elog_port_output_unlock) refers to wm_osal.c.obj(.text.wm_os_sem_release) for wm_os_sem_release
+	wm_drv_fls.c.obj(.text.wm_drv_fls_read) refers to wm_osal.c.obj(.text.wm_os_mutex_release) for wm_os_mutex_release
+	wm_system.c.obj(.text.wm_start) refers to wm_osal.c.obj(.text.wm_os_task_create) for wm_os_task_create
+	wm_system.c.obj(.text.wm_start_task) refers to wm_osal.c.obj(.text.wm_os_task_del) for wm_os_task_del
+	elog_port.c.obj(.text.elog_port_get_t_info) refers to wm_osal.c.obj(.text.wm_os_get_task_name) for wm_os_get_task_name
+	elog_port.c.obj(.text.elog_port_get_time) refers to wm_osal.c.obj(.text.wm_os_get_time_ms) for wm_os_get_time_ms
+	wm_system.c.obj(.text.tls_sys_reset) refers to wm_osal.c.obj(.text.wm_os_set_critical) for wm_os_set_critical
+	wm_heap.c.obj(.text.wm_heap_caps_alloc_tracing) refers to wm_osal.c.obj(.text.wm_os_set_critical) for wm_os_set_critical
+	wm_heap.c.obj(.text.wm_heap_caps_free) refers to wm_osal.c.obj(.text.wm_os_set_critical) for wm_os_set_critical
+	wm_heap.c.obj(.text.wm_heap_caps_alloc_tracing) refers to wm_osal.c.obj(.text.wm_os_release_critical) for wm_os_release_critical
+	wm_heap.c.obj(.text.wm_heap_caps_free) refers to wm_osal.c.obj(.text.wm_os_release_critical) for wm_os_release_critical
+	wm_system.c.obj(.text.wm_start) refers to wm_osal.c.obj(.text.wm_os_init) for wm_os_init
+	wm_system.c.obj(.text.wm_start) refers to wm_osal.c.obj(.text.wm_os_start_scheduler) for wm_os_start_scheduler
+	isr.c.obj(.text.irq_interrupt_entry) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_enter) for csi_kernel_intrpt_enter
+	isr.c.obj(.text.gpsec_irq_handler) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_enter) for csi_kernel_intrpt_enter
+	isr.c.obj(.text.mac_irq_handler) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_enter) for csi_kernel_intrpt_enter
+	isr.c.obj(.text.sec_irq_handler) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_enter) for csi_kernel_intrpt_enter
+	isr.c.obj(.text.irq_interrupt_entry) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_exit) for csi_kernel_intrpt_exit
+	isr.c.obj(.text.gpsec_irq_handler) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_exit) for csi_kernel_intrpt_exit
+	isr.c.obj(.text.mac_irq_handler) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_exit) for csi_kernel_intrpt_exit
+	isr.c.obj(.text.sec_irq_handler) refers to wm_osal.c.obj(.text.csi_kernel_intrpt_exit) for csi_kernel_intrpt_exit
+	elog.c.obj(.text.elog_output) refers to wm_printf.c.obj(.text.wm_vsnprintf) for wm_vsnprintf
+	elog_port.c.obj(.text.elog_port_init) refers to wm_printf.c.obj(.text.wm_printf) for wm_printf
+	elog_port.c.obj(.text.elog_port_output) refers to wm_printf.c.obj(.text.wm_printf) for wm_printf
+	wm_debug.c.obj(.text.wm_output_ramdump) refers to wm_system.c.obj(.text.tls_sys_reset) for tls_sys_reset
+	wm_system.c.obj(.text.wm_start) refers to wm_system.c.obj(.text.tls_pmu_clk_select) for tls_pmu_clk_select
+	wm_system.c.obj(.text.wm_start) refers to wm_system.c.obj(.text.tls_sys_clk_set) for tls_sys_clk_set
+	startup.S.obj(.text) refers to wm_system.c.obj(.text.wm_start) for wm_start
+	wm_stub_drv.c.obj(.text.wm_stub_drv_md5) refers to wm_stub_drv.c.obj(.text.tls_crypto_md5_init) for tls_crypto_md5_init
+	wm_stub_drv.c.obj(.text.wm_stub_drv_md5) refers to wm_stub_drv.c.obj(.text.tls_crypto_md5_update) for tls_crypto_md5_update
+	wm_stub_drv.c.obj(.text.wm_stub_drv_md5) refers to wm_stub_drv.c.obj(.text.tls_crypto_md5_final) for tls_crypto_md5_final
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to wm_stub_drv.c.obj(.text.wm_stub_drv_md5) for wm_stub_drv_md5
+	wm_stub_drv.c.obj(.text.tls_crypto_md5_init) refers to wm_stub_drv.c.obj(.text.tls_irq_enable) for tls_irq_enable
+	isr.c.obj(.text.gpsec_irq_handler) refers to wm_stub_drv.c.obj(.text.CRYPTION_IRQHandler) for CRYPTION_IRQHandler
+	soc_init.c.obj(.text.soc_init) refers to printf_port.c.obj(.text.set_printf_port) for set_printf_port
+	libc_port.c.obj(.text.fputc) refers to printf_port.c.obj(.text.sendchar) for sendchar
+	wm_printf.c.obj(.text._out_uart) refers to printf_port.c.obj(.text.sendchar) for sendchar
+	startup.S.obj(.text) refers to soc_init.c.obj(.text.soc_init) for soc_init
+	wm_log.c.obj(.text.wm_log_init) refers to elog.c.obj(.text.elog_start) for elog_start
+	elog.c.obj(.text.elog_output) refers to elog.c.obj(.text.elog_output_lock) for elog_output_lock
+	elog.c.obj(.text.elog_get_filter_tag_lvl) refers to elog.c.obj(.text.elog_output_lock) for elog_output_lock
+	elog.c.obj(.text.elog_output) refers to elog.c.obj(.text.elog_output_unlock) for elog_output_unlock
+	elog.c.obj(.text.elog_get_filter_tag_lvl) refers to elog.c.obj(.text.elog_output_unlock) for elog_output_unlock
+	wm_system.c.obj(.text.wm_start_task) refers to elog.c.obj(.text.elog_output) for elog_output
+	elog.c.obj(.text.elog_output) refers to elog.c.obj(.text.elog_output) for elog_output
+	elog.c.obj(.text.elog_set_fmt) refers to elog.c.obj(.text.elog_output) for elog_output
+	elog.c.obj(.text.elog_set_filter_lvl) refers to elog.c.obj(.text.elog_output) for elog_output
+	elog.c.obj(.text.elog_get_filter_tag_lvl) refers to elog.c.obj(.text.elog_output) for elog_output
+	elog.c.obj(.text.get_fmt_enabled) refers to elog.c.obj(.text.elog_output) for elog_output
+	elog_utils.c.obj(.text.elog_strcpy) refers to elog.c.obj(.text.elog_output) for elog_output
+	wm_hal_fls.c.obj(.text.wm_hal_fls_read) refers to elog.c.obj(.text.elog_output) for elog_output
+	wm_hal_fls.c.obj(.text.wm_hal_fls_info) refers to elog.c.obj(.text.elog_output) for elog_output
+	wm_hal_fls.c.obj(.text.wm_hal_fls_init) refers to elog.c.obj(.text.elog_output) for elog_output
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to elog.c.obj(.text.elog_output) for elog_output
+	wm_drv_fls.c.obj(.text.wm_drv_fls_read) refers to elog.c.obj(.text.elog_output) for elog_output
+	wm_drv_fls.c.obj(.text.wm_drv_fls_init) refers to elog.c.obj(.text.elog_output) for elog_output
+	wm_log.c.obj(.text.wm_log_init) refers to elog.c.obj(.text.elog_set_fmt) for elog_set_fmt
+	wm_log.c.obj(.text.wm_log_init) refers to elog.c.obj(.text.elog_set_filter_lvl) for elog_set_filter_lvl
+	elog.c.obj(.text.elog_output) refers to elog.c.obj(.text.elog_get_filter_tag_lvl) for elog_get_filter_tag_lvl
+	elog.c.obj(.text.elog_init) refers to elog.c.obj(.text.elog_output_lock_enabled) for elog_output_lock_enabled
+	wm_log.c.obj(.text.wm_log_init) refers to elog.c.obj(.text.elog_init) for elog_init
+	elog.c.obj(.text.elog_output) refers to elog_utils.c.obj(.text.elog_strcpy) for elog_strcpy
+	elog.c.obj(.text.elog_init) refers to elog_port.c.obj(.text.elog_port_init) for elog_port_init
+	elog.c.obj(.text.elog_output) refers to elog_port.c.obj(.text.elog_port_output) for elog_port_output
+	elog.c.obj(.text.elog_output_lock) refers to elog_port.c.obj(.text.elog_port_output_lock) for elog_port_output_lock
+	elog.c.obj(.text.elog_output_lock_enabled) refers to elog_port.c.obj(.text.elog_port_output_lock) for elog_port_output_lock
+	elog.c.obj(.text.elog_output_unlock) refers to elog_port.c.obj(.text.elog_port_output_unlock) for elog_port_output_unlock
+	elog.c.obj(.text.elog_output_lock_enabled) refers to elog_port.c.obj(.text.elog_port_output_unlock) for elog_port_output_unlock
+	elog.c.obj(.text.elog_output) refers to elog_port.c.obj(.text.elog_port_get_time) for elog_port_get_time
+	elog.c.obj(.text.elog_output) refers to elog_port.c.obj(.text.elog_port_get_p_info) for elog_port_get_p_info
+	elog.c.obj(.text.elog_output) refers to elog_port.c.obj(.text.elog_port_get_t_info) for elog_port_get_t_info
+	wm_system.c.obj(.text.wm_start_task) refers to wm_log.c.obj(.text.wm_log_init) for wm_log_init
+	wm_system.c.obj(.text.wm_start_task) refers to wm_heap.c.obj(.text.wm_heap_get_free_heap_size) for wm_heap_get_free_heap_size
+	port.c.obj(.text.pvPortMallocTracing) refers to wm_heap.c.obj(.text.wm_heap_caps_alloc_tracing) for wm_heap_caps_alloc_tracing
+	wm_hal_fls.c.obj(.text.wm_hal_fls_read) refers to wm_heap.c.obj(.text.wm_heap_caps_alloc_tracing) for wm_heap_caps_alloc_tracing
+	wm_hal_fls.c.obj(.text.wm_hal_fls_init) refers to wm_heap.c.obj(.text.wm_heap_caps_alloc_tracing) for wm_heap_caps_alloc_tracing
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to wm_heap.c.obj(.text.wm_heap_caps_alloc_tracing) for wm_heap_caps_alloc_tracing
+	port.c.obj(.text.vPortFree) refers to wm_heap.c.obj(.text.wm_heap_caps_free) for wm_heap_caps_free
+	wm_hal_fls.c.obj(.text.wm_hal_fls_read) refers to wm_heap.c.obj(.text.wm_heap_caps_free) for wm_heap_caps_free
+	wm_hal_fls.c.obj(.text.wm_hal_fls_init) refers to wm_heap.c.obj(.text.wm_heap_caps_free) for wm_heap_caps_free
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to wm_heap.c.obj(.text.wm_heap_caps_free) for wm_heap_caps_free
+	wm_system.c.obj(.text.wm_start) refers to wm_heap.c.obj(.text.wm_heap_init) for wm_heap_init
+	wm_drv_fls.c.obj(.text.wm_drv_fls_read) refers to wm_hal_fls.c.obj(.text.wm_hal_fls_read) for wm_hal_fls_read
+	wm_drv_fls.c.obj(.text.wm_drv_fls_info) refers to wm_hal_fls.c.obj(.text.wm_hal_fls_info) for wm_hal_fls_info
+	wm_drv_fls.c.obj(.text.wm_drv_fls_init) refers to wm_hal_fls.c.obj(.text.wm_hal_fls_init) for wm_hal_fls_init
+	wm_system.c.obj(.text.wm_start) refers to wm_hal_irq.c.obj(.text.wm_hal_irq_init) for wm_hal_irq_init
+	wm_system.c.obj(.text.wm_start) refers to wm_hal_irq.c.obj(.text.wm_hal_irq_attach_hw_vector) for wm_hal_irq_attach_hw_vector
+	wm_osal.c.obj(.text.wm_os_init) refers to wm_hal_irq.c.obj(.text.wm_hal_irq_attach_hw_vector) for wm_hal_irq_attach_hw_vector
+	wm_system.c.obj(.text.wm_start) refers to wm_hal_irq.c.obj(.text.wm_hal_irq_clear_pending) for wm_hal_irq_clear_pending
+	wm_system.c.obj(.text.wm_start) refers to wm_hal_irq.c.obj(.text.wm_hal_irq_set_wakeup) for wm_hal_irq_set_wakeup
+	wm_system.c.obj(.text.tls_sys_reset) refers to wm_debug.c.obj(.text.wm_set_reboot_reason) for wm_set_reboot_reason
+	wm_system.c.obj(.text.wm_start) refers to wm_debug.c.obj(.text.wm_set_reboot_reason) for wm_set_reboot_reason
+	wm_system.c.obj(.text.wm_start_task) refers to wm_debug.c.obj(.text.wm_get_reboot_reason) for wm_get_reboot_reason
+	trap_c.c.obj(.text.trap_c) refers to wm_debug.c.obj(.text.wm_output_ramdump) for wm_output_ramdump
+	wm_system.c.obj(.text.wm_start_task) refers to wm_partition_table.c.obj(.text.wm_partition_table_init) for wm_partition_table_init
+	queue.c.obj(.text.xQueueGenericReset) refers to list.c.obj(.text.vListInitialise) for vListInitialise
+	tasks.c.obj(.text.prvAddNewTaskToReadyList) refers to list.c.obj(.text.vListInitialise) for vListInitialise
+	timers.c.obj(.text.prvCheckForValidListAndQueue) refers to list.c.obj(.text.vListInitialise) for vListInitialise
+	tasks.c.obj(.text.prvInitialiseNewTask.isra.2) refers to list.c.obj(.text.vListInitialiseItem) for vListInitialiseItem
+	timers.c.obj(.text.xTimerCreate) refers to list.c.obj(.text.vListInitialiseItem) for vListInitialiseItem
+	tasks.c.obj(.text.prvAddNewTaskToReadyList) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.prvAddCurrentTaskToDelayedList) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.vTaskDelete) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.xTaskIncrementTick) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.xTaskResumeAll) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.vTaskPlaceOnEventListRestricted) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.xTaskRemoveFromEventList) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.xTaskPriorityInherit) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.xTaskPriorityDisinherit) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.vTaskPriorityDisinheritAfterTimeout) refers to list.c.obj(.text.vListInsertEnd) for vListInsertEnd
+	tasks.c.obj(.text.prvAddCurrentTaskToDelayedList) refers to list.c.obj(.text.vListInsert) for vListInsert
+	tasks.c.obj(.text.vTaskPlaceOnEventList) refers to list.c.obj(.text.vListInsert) for vListInsert
+	timers.c.obj(.text.prvInsertTimerInActiveList) refers to list.c.obj(.text.vListInsert) for vListInsert
+	timers.c.obj(.text.prvSwitchTimerLists) refers to list.c.obj(.text.vListInsert) for vListInsert
+	tasks.c.obj(.text.prvIdleTask) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.prvAddCurrentTaskToDelayedList) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.vTaskDelete) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.xTaskIncrementTick) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.xTaskResumeAll) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.xTaskRemoveFromEventList) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.xTaskPriorityInherit) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.xTaskPriorityDisinherit) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	tasks.c.obj(.text.vTaskPriorityDisinheritAfterTimeout) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	timers.c.obj(.text.prvSwitchTimerLists) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	timers.c.obj(.text.prvTimerTask) refers to list.c.obj(.text.uxListRemove) for uxListRemove
+	queue.c.obj(.text.xQueueGenericCreateStatic) refers to queue.c.obj(.text.xQueueGenericReset) for xQueueGenericReset
+	queue.c.obj(.text.xQueueGenericCreate) refers to queue.c.obj(.text.xQueueGenericReset) for xQueueGenericReset
+	timers.c.obj(.text.prvCheckForValidListAndQueue) refers to queue.c.obj(.text.xQueueGenericCreateStatic) for xQueueGenericCreateStatic
+	queue.c.obj(.text.xQueueCreateCountingSemaphore) refers to queue.c.obj(.text.xQueueGenericCreate) for xQueueGenericCreate
+	queue.c.obj(.text.xQueueCreateMutex) refers to queue.c.obj(.text.xQueueGenericCreate) for xQueueGenericCreate
+	wm_osal.c.obj(.text.wm_os_sem_create) refers to queue.c.obj(.text.xQueueCreateCountingSemaphore) for xQueueCreateCountingSemaphore
+	wm_osal.c.obj(.text.wm_os_sem_release) refers to queue.c.obj(.text.xQueueGenericSend) for xQueueGenericSend
+	queue.c.obj(.text.prvInitialiseMutex) refers to queue.c.obj(.text.xQueueGenericSend) for xQueueGenericSend
+	timers.c.obj(.text.xTimerGenericCommand) refers to queue.c.obj(.text.xQueueGenericSend) for xQueueGenericSend
+	wm_osal.c.obj(.text.wm_os_mutex_create) refers to queue.c.obj(.text.xQueueCreateMutex) for xQueueCreateMutex
+	timers.c.obj(.text.xTimerGenericCommand) refers to queue.c.obj(.text.xQueueGenericSendFromISR) for xQueueGenericSendFromISR
+	wm_osal.c.obj(.text.wm_os_sem_release) refers to queue.c.obj(.text.xQueueGiveFromISR) for xQueueGiveFromISR
+	timers.c.obj(.text.prvTimerTask) refers to queue.c.obj(.text.xQueueReceive) for xQueueReceive
+	wm_osal.c.obj(.text.wm_os_mutex_acquire) refers to queue.c.obj(.text.xQueueSemaphoreTake) for xQueueSemaphoreTake
+	wm_osal.c.obj(.text.wm_os_sem_acquire) refers to queue.c.obj(.text.xQueueSemaphoreTake) for xQueueSemaphoreTake
+	wm_osal.c.obj(.text.wm_os_mutex_acquire) refers to queue.c.obj(.text.xQueueReceiveFromISR) for xQueueReceiveFromISR
+	wm_osal.c.obj(.text.wm_os_sem_acquire) refers to queue.c.obj(.text.xQueueReceiveFromISR) for xQueueReceiveFromISR
+	wm_osal.c.obj(.text.wm_os_mutex_delete) refers to queue.c.obj(.text.vQueueDelete) for vQueueDelete
+	timers.c.obj(.text.prvTimerTask) refers to queue.c.obj(.text.vQueueWaitForMessageRestricted) for vQueueWaitForMessageRestricted
+	tasks.c.obj(.text.vTaskStartScheduler) refers to tasks.c.obj(.text.xTaskCreateStatic) for xTaskCreateStatic
+	timers.c.obj(.text.xTimerCreateTimerTask) refers to tasks.c.obj(.text.xTaskCreateStatic) for xTaskCreateStatic
+	main.c.obj(.text.startup.main) refers to tasks.c.obj(.text.xTaskCreate) for xTaskCreate
+	wm_osal.c.obj(.text.wm_os_task_create) refers to tasks.c.obj(.text.xTaskCreate) for xTaskCreate
+	wm_osal.c.obj(.text.wm_os_task_del) refers to tasks.c.obj(.text.vTaskDelete) for vTaskDelete
+	wm_osal.c.obj(.text.wm_os_start_scheduler) refers to tasks.c.obj(.text.vTaskStartScheduler) for vTaskStartScheduler
+	queue.c.obj(.text.xQueueGenericSend) refers to tasks.c.obj(.text.vTaskSuspendAll) for vTaskSuspendAll
+	queue.c.obj(.text.xQueueReceive) refers to tasks.c.obj(.text.vTaskSuspendAll) for vTaskSuspendAll
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.vTaskSuspendAll) for vTaskSuspendAll
+	tasks.c.obj(.text.vTaskDelay) refers to tasks.c.obj(.text.vTaskSuspendAll) for vTaskSuspendAll
+	timers.c.obj(.text.prvTimerTask) refers to tasks.c.obj(.text.vTaskSuspendAll) for vTaskSuspendAll
+	main.c.obj(.text.startup.main) refers to tasks.c.obj(.text.xTaskGetTickCount) for xTaskGetTickCount
+	timers.c.obj(.text.prvTimerTask) refers to tasks.c.obj(.text.xTaskGetTickCount) for xTaskGetTickCount
+	wm_osal.c.obj(.text.wm_os_get_time_ms) refers to tasks.c.obj(.text.xTaskGetTickCountFromISR) for xTaskGetTickCountFromISR
+	wm_osal.c.obj(.text.wm_os_get_task_name) refers to tasks.c.obj(.text.pcTaskGetName) for pcTaskGetName
+	port.c.obj(.text.xPortSysTickHandler) refers to tasks.c.obj(.text.xTaskIncrementTick) for xTaskIncrementTick
+	tasks.c.obj(.text.xTaskResumeAll) refers to tasks.c.obj(.text.xTaskIncrementTick) for xTaskIncrementTick
+	queue.c.obj(.text.xQueueGenericSend) refers to tasks.c.obj(.text.xTaskResumeAll) for xTaskResumeAll
+	queue.c.obj(.text.xQueueReceive) refers to tasks.c.obj(.text.xTaskResumeAll) for xTaskResumeAll
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.xTaskResumeAll) for xTaskResumeAll
+	tasks.c.obj(.text.vTaskDelay) refers to tasks.c.obj(.text.xTaskResumeAll) for xTaskResumeAll
+	timers.c.obj(.text.prvTimerTask) refers to tasks.c.obj(.text.xTaskResumeAll) for xTaskResumeAll
+	main.c.obj(.text.test_task) refers to tasks.c.obj(.text.vTaskDelay) for vTaskDelay
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.pvTaskIncrementMutexHeldCount) for pvTaskIncrementMutexHeldCount
+	queue.c.obj(.text.xQueueGenericSend) refers to tasks.c.obj(.text.vTaskPlaceOnEventList) for vTaskPlaceOnEventList
+	queue.c.obj(.text.xQueueReceive) refers to tasks.c.obj(.text.vTaskPlaceOnEventList) for vTaskPlaceOnEventList
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.vTaskPlaceOnEventList) for vTaskPlaceOnEventList
+	queue.c.obj(.text.vQueueWaitForMessageRestricted) refers to tasks.c.obj(.text.vTaskPlaceOnEventListRestricted) for vTaskPlaceOnEventListRestricted
+	queue.c.obj(.text.prvUnlockQueue) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueGenericReset) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueGenericSend) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueGenericSendFromISR) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueGiveFromISR) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueReceive) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueReceiveFromISR) refers to tasks.c.obj(.text.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+	queue.c.obj(.text.xQueueGenericSend) refers to tasks.c.obj(.text.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+	queue.c.obj(.text.xQueueReceive) refers to tasks.c.obj(.text.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+	tasks.c.obj(.text.xTaskCheckForTimeOut) refers to tasks.c.obj(.text.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+	queue.c.obj(.text.xQueueGenericSend) refers to tasks.c.obj(.text.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+	queue.c.obj(.text.xQueueReceive) refers to tasks.c.obj(.text.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+	queue.c.obj(.text.prvUnlockQueue) refers to tasks.c.obj(.text.vTaskMissedYield) for vTaskMissedYield
+	wm_osal.c.obj(.text.wm_os_get_task_name) refers to tasks.c.obj(.text.xTaskGetSchedulerState) for xTaskGetSchedulerState
+	queue.c.obj(.text.xQueueGenericSend) refers to tasks.c.obj(.text.xTaskGetSchedulerState) for xTaskGetSchedulerState
+	queue.c.obj(.text.xQueueReceive) refers to tasks.c.obj(.text.xTaskGetSchedulerState) for xTaskGetSchedulerState
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.xTaskGetSchedulerState) for xTaskGetSchedulerState
+	timers.c.obj(.text.xTimerGenericCommand) refers to tasks.c.obj(.text.xTaskGetSchedulerState) for xTaskGetSchedulerState
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.xTaskPriorityInherit) for xTaskPriorityInherit
+	queue.c.obj(.text.prvCopyDataToQueue) refers to tasks.c.obj(.text.xTaskPriorityDisinherit) for xTaskPriorityDisinherit
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to tasks.c.obj(.text.vTaskPriorityDisinheritAfterTimeout) for vTaskPriorityDisinheritAfterTimeout
+	tasks.c.obj(.text.vTaskStartScheduler) refers to timers.c.obj(.text.xTimerCreateTimerTask) for xTimerCreateTimerTask
+	main.c.obj(.text.startup.main) refers to timers.c.obj(.text.xTimerCreate) for xTimerCreate
+	main.c.obj(.text.startup.main) refers to timers.c.obj(.text.xTimerGenericCommand) for xTimerGenericCommand
+	timers.c.obj(.text.prvSwitchTimerLists) refers to timers.c.obj(.text.xTimerGenericCommand) for xTimerGenericCommand
+	timers.c.obj(.text.prvTimerTask) refers to timers.c.obj(.text.xTimerGenericCommand) for xTimerGenericCommand
+	isr.c.obj(.text.coret_irq_handler) refers to port.c.obj(.text.xPortSysTickHandler) for xPortSysTickHandler
+	tasks.c.obj(.text.prvInitialiseNewTask.isra.2) refers to port.c.obj(.text.pxPortInitialiseStack) for pxPortInitialiseStack
+	tasks.c.obj(.text.vTaskStartScheduler) refers to port.c.obj(.text.xPortStartScheduler) for xPortStartScheduler
+	port.c.obj(.text.vPortEnterCritical) refers to port.c.obj(.text.cpu_intrpt_save) for cpu_intrpt_save
+	wm_osal.c.obj(.text.wm_os_set_critical) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	queue.c.obj(.text.prvIsQueueEmpty) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	queue.c.obj(.text.prvUnlockQueue) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	queue.c.obj(.text.xQueueGenericReset) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	queue.c.obj(.text.xQueueGenericSend) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	queue.c.obj(.text.xQueueReceive) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	queue.c.obj(.text.vQueueWaitForMessageRestricted) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	tasks.c.obj(.text.prvAddNewTaskToReadyList) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	tasks.c.obj(.text.prvIdleTask) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	tasks.c.obj(.text.vTaskDelete) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	tasks.c.obj(.text.xTaskResumeAll) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	tasks.c.obj(.text.xTaskCheckForTimeOut) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	timers.c.obj(.text.prvCheckForValidListAndQueue) refers to port.c.obj(.text.vPortEnterCritical) for vPortEnterCritical
+	wm_osal.c.obj(.text.wm_os_release_critical) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	queue.c.obj(.text.prvIsQueueEmpty) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	queue.c.obj(.text.prvUnlockQueue) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	queue.c.obj(.text.xQueueGenericReset) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	queue.c.obj(.text.xQueueGenericSend) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	queue.c.obj(.text.xQueueReceive) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	queue.c.obj(.text.vQueueWaitForMessageRestricted) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	tasks.c.obj(.text.prvAddNewTaskToReadyList) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	tasks.c.obj(.text.prvIdleTask) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	tasks.c.obj(.text.vTaskDelete) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	tasks.c.obj(.text.xTaskResumeAll) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	tasks.c.obj(.text.xTaskCheckForTimeOut) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	timers.c.obj(.text.prvCheckForValidListAndQueue) refers to port.c.obj(.text.vPortExitCritical) for vPortExitCritical
+	tasks.c.obj(.text.vTaskStartScheduler) refers to port.c.obj(.text.vApplicationGetIdleTaskMemory) for vApplicationGetIdleTaskMemory
+	timers.c.obj(.text.xTimerCreateTimerTask) refers to port.c.obj(.text.vApplicationGetTimerTaskMemory) for vApplicationGetTimerTaskMemory
+	tasks.c.obj(.text.vTaskSwitchContext) refers to port.c.obj(.text.vApplicationStackOverflowHook) for vApplicationStackOverflowHook
+	tasks.c.obj(.text.prvIdleTask) refers to port.c.obj(.text.vApplicationIdleHook) for vApplicationIdleHook
+	tasks.c.obj(.text.prvDeleteTCB) refers to port.c.obj(.text.vPortCleanUpTCB) for vPortCleanUpTCB
+	queue.c.obj(.text.xQueueGenericCreate) refers to port.c.obj(.text.pvPortMallocTracing) for pvPortMallocTracing
+	tasks.c.obj(.text.xTaskCreate) refers to port.c.obj(.text.pvPortMallocTracing) for pvPortMallocTracing
+	timers.c.obj(.text.xTimerCreate) refers to port.c.obj(.text.pvPortMallocTracing) for pvPortMallocTracing
+	queue.c.obj(.text.vQueueDelete) refers to port.c.obj(.text.vPortFree) for vPortFree
+	tasks.c.obj(.text.prvDeleteTCB) refers to port.c.obj(.text.vPortFree) for vPortFree
+	tasks.c.obj(.text.xTaskCreate) refers to port.c.obj(.text.vPortFree) for vPortFree
+	timers.c.obj(.text.prvTimerTask) refers to port.c.obj(.text.vPortFree) for vPortFree
+	port.c.obj(.text.xPortSysTickHandler) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	wm_osal.c.obj(.text.wm_os_mutex_acquire) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	wm_osal.c.obj(.text.wm_os_sem_acquire) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	wm_osal.c.obj(.text.wm_os_sem_release) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	wm_osal.c.obj(.text.csi_kernel_intrpt_exit) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	queue.c.obj(.text.xQueueGenericReset) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	queue.c.obj(.text.xQueueGenericSend) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	queue.c.obj(.text.xQueueReceive) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	tasks.c.obj(.text.prvAddNewTaskToReadyList) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	tasks.c.obj(.text.prvIdleTask) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	tasks.c.obj(.text.vTaskDelete) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	tasks.c.obj(.text.xTaskResumeAll) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	tasks.c.obj(.text.vTaskDelay) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	timers.c.obj(.text.prvTimerTask) refers to cpu_task_sw.S.obj(.text) for cpu_yeild
+	port.c.obj(.text.xPortStartScheduler) refers to cpu_task_sw.S.obj(.text) for vPortStartTask
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to wm_drv_fls.c.obj(.text.wm_drv_fls_read) for wm_drv_fls_read
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to wm_drv_fls.c.obj(.text.wm_drv_fls_info) for wm_drv_fls_info
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to wm_drv_fls.c.obj(.text.wm_drv_fls_init) for wm_drv_fls_init
+	wm_debug.c.obj(.text.wm_output_ramdump) refers to wm_drv_uart.c.obj(.text.wm_drv_uart_getc) for wm_drv_uart_getc
+	wm_drv_uart.c.obj(.text.wm_drv_uart_write) refers to wm_drv_uart.c.obj(.text.wm_drv_uart_putc) for wm_drv_uart_putc
+	wm_debug.c.obj(.text.wm_output_ramdump) refers to wm_drv_uart.c.obj(.text.wm_drv_uart_write) for wm_drv_uart_write
+	wm_printf.c.obj(.text._ftoa) refers to _fixunsdfsi.o(.text) for __fixunsdfsi
+	__v2_printfDFHLlMOPpSSsWp.o(.text) refers to _udivdi3.o(.text) for __udivdi3
+	wm_printf.c.obj(.text._ntoa_long_long) refers to _udivdi3.o(.text) for __udivdi3
+	__v2_printfDFHLlMOPpSSsWp.o(.text) refers to _umoddi3.o(.text) for __umoddi3
+	wm_printf.c.obj(.text._ntoa_long_long) refers to _umoddi3.o(.text) for __umoddi3
+	wm_system.c.obj(.text.wm_start_task) refers to _sf_to_df.o(.text) for __extendsfdf2
+	__dtostr.o(.text) refers to _addsub_df.o(.text) for __adddf3
+	wm_printf.c.obj(.text._etoa) refers to _addsub_df.o(.text) for __adddf3
+	_fixunsdfsi.o(.text) refers to _addsub_df.o(.text) for __subdf3
+	__dtostr.o(.text) refers to _addsub_df.o(.text) for __subdf3
+	wm_printf.c.obj(.text._ftoa) refers to _addsub_df.o(.text) for __subdf3
+	wm_printf.c.obj(.text._etoa) refers to _addsub_df.o(.text) for __subdf3
+	wm_system.c.obj(.text.wm_start_task) refers to _mul_df.o(.text) for __muldf3
+	__dtostr.o(.text) refers to _mul_df.o(.text) for __muldf3
+	wm_printf.c.obj(.text._ftoa) refers to _mul_df.o(.text) for __muldf3
+	wm_printf.c.obj(.text._etoa) refers to _mul_df.o(.text) for __muldf3
+	__dtostr.o(.text) refers to _div_df.o(.text) for __divdf3
+	wm_printf.c.obj(.text._etoa) refers to _div_df.o(.text) for __divdf3
+	wm_printf.c.obj(.text._ftoa) refers to _ne_df.o(.text) for __nedf2
+	wm_printf.c.obj(.text._etoa) refers to _ne_df.o(.text) for __nedf2
+	__dtostr.o(.text) refers to _gt_df.o(.text) for __gtdf2
+	wm_printf.c.obj(.text._ftoa) refers to _gt_df.o(.text) for __gtdf2
+	wm_printf.c.obj(.text._etoa) refers to _gt_df.o(.text) for __gtdf2
+	_fixunsdfsi.o(.text) refers to _ge_df.o(.text) for __gedf2
+	wm_printf.c.obj(.text._etoa) refers to _ge_df.o(.text) for __gedf2
+	__dtostr.o(.text) refers to _lt_df.o(.text) for __ltdf2
+	wm_printf.c.obj(.text._ftoa) refers to _lt_df.o(.text) for __ltdf2
+	wm_printf.c.obj(.text._etoa) refers to _lt_df.o(.text) for __ltdf2
+	wm_printf.c.obj(.text._ftoa) refers to _le_df.o(.text) for __ledf2
+	__dtostr.o(.text) refers to _si_to_df.o(.text) for __floatsidf
+	wm_printf.c.obj(.text._ftoa) refers to _si_to_df.o(.text) for __floatsidf
+	wm_printf.c.obj(.text._etoa) refers to _si_to_df.o(.text) for __floatsidf
+	_fixunsdfsi.o(.text) refers to _df_to_si.o(.text) for __fixdfsi
+	__dtostr.o(.text) refers to _df_to_si.o(.text) for __fixdfsi
+	wm_printf.c.obj(.text._ftoa) refers to _df_to_si.o(.text) for __fixdfsi
+	wm_printf.c.obj(.text._etoa) refers to _df_to_si.o(.text) for __fixdfsi
+	_sf_to_df.o(.text) refers to _make_df.o(.text) for __make_dp
+	wm_system.c.obj(.text.wm_start_task) refers to _df_to_sf.o(.text) for __truncdfsf2
+	wm_system.c.obj(.text.wm_start_task) refers to _usi_to_df.o(.text) for __floatunsidf
+	wm_printf.c.obj(.text._ftoa) refers to _usi_to_df.o(.text) for __floatunsidf
+	_mul_df.o(.text) refers to _muldi3.o(.text) for __muldi3
+	_sf_to_df.o(.text) refers to _unpack_sf.o(.text) for __unpack_f
+	_df_to_sf.o(.text) refers to _make_sf.o(.text) for __make_fp
+	_addsub_df.o(.text) refers to _pack_df.o(.text) for __pack_d
+	_addsub_df.o(.text) refers to _pack_df.o(.text) for __pack_d
+	_mul_df.o(.text) refers to _pack_df.o(.text) for __pack_d
+	_div_df.o(.text) refers to _pack_df.o(.text) for __pack_d
+	_si_to_df.o(.text) refers to _pack_df.o(.text) for __pack_d
+	_make_df.o(.text) refers to _pack_df.o(.text) for __pack_d
+	_usi_to_df.o(.text) refers to _pack_df.o(.text) for __pack_d
+	_addsub_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_addsub_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_mul_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_div_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_ne_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_gt_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_ge_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_lt_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_le_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_df_to_si.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_df_to_sf.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_eq_df.o(.text) refers to _unpack_df.o(.text) for __unpack_d
+	_ne_df.o(.text) refers to _fpcmp_parts_df.o(.text) for __fpcmp_parts_d
+	_gt_df.o(.text) refers to _fpcmp_parts_df.o(.text) for __fpcmp_parts_d
+	_ge_df.o(.text) refers to _fpcmp_parts_df.o(.text) for __fpcmp_parts_d
+	_lt_df.o(.text) refers to _fpcmp_parts_df.o(.text) for __fpcmp_parts_d
+	_le_df.o(.text) refers to _fpcmp_parts_df.o(.text) for __fpcmp_parts_d
+	_eq_df.o(.text) refers to _fpcmp_parts_df.o(.text) for __fpcmp_parts_d
+	_make_sf.o(.text) refers to _pack_sf.o(.text) for __pack_f
+	elog_port.c.obj(.text.elog_port_get_time) refers to sprintf_required.o(.text) for __cskyvprintfsprintf
+	trap_c.c.obj(.text.trap_c) refers to putchar.o(.text) for putchar
+	port.c.obj(.text.vApplicationStackOverflowHook) refers to printf_required.o(.text) for __cskyvprintfprintf
+	trap_c.c.obj(.text.trap_c) refers to printf_required.o(.text) for __cskyvprintfprintf
+	wm_heap.c.obj(.text.wm_heap_caps_alloc_tracing) refers to printf_required.o(.text) for __cskyvprintfprintf
+	wm_heap.c.obj(.text.wm_heap_caps_free) refers to printf_required.o(.text) for __cskyvprintfprintf
+	wm_hal_irq.c.obj(.text.wm_hal_irq_unexpected_handler) refers to printf_required.o(.text) for __cskyvprintfprintf
+	wm_hal_irq.c.obj(.text.wm_hal_irq_attach_hw_vector) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueGenericReset) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueGenericCreateStatic) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueGenericCreate) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueCreateCountingSemaphore) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueGenericSend) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueGenericSendFromISR) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueGiveFromISR) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueReceive) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueSemaphoreTake) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.xQueueReceiveFromISR) refers to printf_required.o(.text) for __cskyvprintfprintf
+	queue.c.obj(.text.vQueueDelete) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.prvDeleteTCB) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.xTaskCreateStatic) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.vTaskDelete) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.vTaskStartScheduler) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.pcTaskGetName) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.xTaskIncrementTick) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.xTaskResumeAll) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.vTaskDelay) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.vTaskSwitchContext) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.vTaskPlaceOnEventList) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.vTaskPlaceOnEventListRestricted) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.xTaskRemoveFromEventList) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.xTaskCheckForTimeOut) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.xTaskPriorityDisinherit) refers to printf_required.o(.text) for __cskyvprintfprintf
+	tasks.c.obj(.text.vTaskPriorityDisinheritAfterTimeout) refers to printf_required.o(.text) for __cskyvprintfprintf
+	timers.c.obj(.text.prvInitialiseNewTimer.part.1) refers to printf_required.o(.text) for __cskyvprintfprintf
+	timers.c.obj(.text.xTimerCreateTimerTask) refers to printf_required.o(.text) for __cskyvprintfprintf
+	timers.c.obj(.text.xTimerGenericCommand) refers to printf_required.o(.text) for __cskyvprintfprintf
+	timers.c.obj(.text.prvSwitchTimerLists) refers to printf_required.o(.text) for __cskyvprintfprintf
+	timers.c.obj(.text.prvTimerTask) refers to printf_required.o(.text) for __cskyvprintfprintf
+	main.c.obj(.text.vTimerCallback) refers to puts.o(.text) for puts
+	main.c.obj(.text.test_task) refers to puts.o(.text) for puts
+	main.c.obj(.text.startup.main) refers to puts.o(.text) for puts
+	elog.c.obj(.text.elog_output) refers to snprintf_required.o(.text) for __cskyvprintfsnprintf
+	printf_required.o(.text) refers to vprintf_required.o(.text) for __cskyvprintfvprintf
+	puts.o(.text) refers to fputs.o(.text) for fputs
+	snprintf_required.o(.text) refers to vsnprintf_required.o(.text) for __cskyvprintfvsnprintf
+	vsprintf_required.o(.text) refers to vsnprintf_required.o(.text) for __cskyvprintfvsnprintf
+	wm_stub_drv.c.obj(.text.tls_crypto_md5_final) refers to memset_fast.o(.text) for memset
+	elog.c.obj(.text.elog_output) refers to memset_fast.o(.text) for memset
+	elog.c.obj(.text.elog_init) refers to memset_fast.o(.text) for memset
+	wm_hal_fls.c.obj(.text.wm_hal_fls_init) refers to memset_fast.o(.text) for memset
+	wm_debug.c.obj(.text.wm_output_ramdump) refers to memset_fast.o(.text) for memset
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to memset_fast.o(.text) for memset
+	tasks.c.obj(.text.prvInitialiseNewTask.isra.2) refers to memset_fast.o(.text) for memset
+	wm_drv_fls.c.obj(.text.wm_drv_fls_info) refers to memset_fast.o(.text) for memset
+	__v2_printfDFHLlMOPpSSsWp.o(.text) refers to strlen_fast.o(.text) for strlen
+	elog.c.obj(.text.elog_output) refers to strlen_fast.o(.text) for strlen
+	__v2_printfDFHLlMOPpSSsWp.o(.text) refers to strcpy_fast.o(.text) for strcpy
+	elog.c.obj(.text.elog_output) refers to strstr.o(.text) for strstr
+	wm_debug.c.obj(.text.wm_output_ramdump) refers to strstr.o(.text) for strstr
+	vsnprintf_required.o(.text) refers to memcpy_fast.o(.text) for memcpy
+	wm_stub_drv.c.obj(.text.tls_crypto_md5_update) refers to memcpy_fast.o(.text) for memcpy
+	wm_stub_drv.c.obj(.text.tls_crypto_md5_final) refers to memcpy_fast.o(.text) for memcpy
+	wm_hal_fls.c.obj(.text.wm_hal_fls_read) refers to memcpy_fast.o(.text) for memcpy
+	wm_hal_fls.c.obj(.text.wm_hal_fls_info) refers to memcpy_fast.o(.text) for memcpy
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to memcpy_fast.o(.text) for memcpy
+	queue.c.obj(.text.prvCopyDataToQueue) refers to memcpy_fast.o(.text) for memcpy
+	queue.c.obj(.text.prvCopyDataFromQueue) refers to memcpy_fast.o(.text) for memcpy
+	wm_partition_table.c.obj(.text.wm_partition_table_init) refers to memcmp_fast.o(.text) for memcmp
+	elog.c.obj(.text.elog_get_filter_tag_lvl) refers to strncmp.o(.text) for strncmp
+	vprintf_required.o(.text) refers to critical.o(.text) for os_critical_enter
+	fputs.o(.text) refers to critical.o(.text) for os_critical_enter
+	vprintf_required.o(.text) refers to critical.o(.text) for os_critical_exit
+	fputs.o(.text) refers to critical.o(.text) for os_critical_exit
+	putchar.o(.text) refers to putc.o(.text) for putc
+	sprintf_required.o(.text) refers to vsprintf_required.o(.text) for __cskyvprintfvsprintf
+	__dtostr.o(.text) refers to _eq_df.o(.text) for __eqdf2
+	vprintf_required.o(.text) refers to __v2_printfDFHLlMOPpSSsWp.o(.text) for __v2_printf
+	vsnprintf_required.o(.text) refers to __v2_printfDFHLlMOPpSSsWp.o(.text) for __v2_printf
+	__dtostr.o(.text) refers to __dtostr.o(.text) for __GI___dtostr
+	__v2_printfDFHLlMOPpSSsWp.o(.text) refers to __dtostr.o(.text) for __dtostr
+	__dtostr.o(.text) refers to __isnan.o(.text) for __isnan
+	__v2_printfDFHLlMOPpSSsWp.o(.text) refers to strchr.o(.text) for strchr
+	__v2_printfDFHLlMOPpSSsWp.o(.text) refers to strerror.o(.text) for strerror
+	__dtostr.o(.text) refers to __isinf.o(.text) for __isinf
+
+
+======================================================================
+
+Removing Unused input sections from the image. 
+
+	Removing .text(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (0 bytes).
+	Removing .data(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (0 bytes).
+	Removing .bss(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (0 bytes).
+	Removing .debug_info(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (29 bytes).
+	Removing .debug_abbrev(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (16 bytes).
+	Removing .debug_aranges(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (24 bytes).
+	Removing .debug_macinfo(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (9751 bytes).
+	Removing .debug_line(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (97 bytes).
+	Removing .debug_str(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (165 bytes).
+	Removing .comment(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (67 bytes).
+	Removing .csky.attributes(CMakeFiles/test.elf.dir/project/project_elf_src.c.obj), (56 bytes).
+	Removing .text(main.c.obj), (0 bytes).
+	Removing .data(main.c.obj), (0 bytes).
+	Removing .bss(main.c.obj), (0 bytes).
+	Removing .text(isr.c.obj), (0 bytes).
+	Removing .data(isr.c.obj), (0 bytes).
+	Removing .bss(isr.c.obj), (0 bytes).
+	Removing .text(cpu_init.c.obj), (0 bytes).
+	Removing .data(cpu_init.c.obj), (0 bytes).
+	Removing .bss(cpu_init.c.obj), (0 bytes).
+	Removing .text.mdelay(cpu_init.c.obj), (60 bytes).
+	Removing .text(libc_port.c.obj), (0 bytes).
+	Removing .data(libc_port.c.obj), (0 bytes).
+	Removing .bss(libc_port.c.obj), (0 bytes).
+	Removing .text.fgetc(libc_port.c.obj), (4 bytes).
+	Removing .text.__assert_fail(libc_port.c.obj), (52 bytes).
+	Removing .rodata.__assert_fail.str1.1(libc_port.c.obj), (62 bytes).
+	Removing .text(trap_c.c.obj), (0 bytes).
+	Removing .data(trap_c.c.obj), (0 bytes).
+	Removing .bss(trap_c.c.obj), (0 bytes).
+	Removing .data(startup.S.obj), (0 bytes).
+	Removing .data(vectors.S.obj), (0 bytes).
+	Removing .text(wm_osal.c.obj), (0 bytes).
+	Removing .data(wm_osal.c.obj), (0 bytes).
+	Removing .bss(wm_osal.c.obj), (0 bytes).
+	Removing .text.prvTimerCallback(wm_osal.c.obj), (14 bytes).
+	Removing .text.wm_os_task_del_ex(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_task_suspend(wm_osal.c.obj), (12 bytes).
+	Removing .text.wm_os_task_id(wm_osal.c.obj), (8 bytes).
+	Removing .text.wm_os_task_schedule_state(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_task_resume(wm_osal.c.obj), (12 bytes).
+	Removing .text.wm_os_set_task_name(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_task_yield(wm_osal.c.obj), (12 bytes).
+	Removing .text.wm_os_task_get_max_priority(wm_osal.c.obj), (4 bytes).
+	Removing .text.wm_os_task_schedule_lock(wm_osal.c.obj), (8 bytes).
+	Removing .text.wm_os_task_schedule_unlock(wm_osal.c.obj), (20 bytes).
+	Removing .text.wm_os_recursive_mutex_create(wm_osal.c.obj), (22 bytes).
+	Removing .text.wm_os_recursive_mutex_delete(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_recursive_mutex_acquire(wm_osal.c.obj), (78 bytes).
+	Removing .text.wm_os_recursive_mutex_release(wm_osal.c.obj), (72 bytes).
+	Removing .text.wm_os_sem_delete(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_sem_reset(wm_osal.c.obj), (18 bytes).
+	Removing .text.wm_os_sem_acquire_ms(wm_osal.c.obj), (30 bytes).
+	Removing .text.wm_os_sem_get_count(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_queue_create(wm_osal.c.obj), (76 bytes).
+	Removing .text.wm_os_queue_delete(wm_osal.c.obj), (22 bytes).
+	Removing .text.wm_os_queue_is_empty(wm_osal.c.obj), (28 bytes).
+	Removing .text.wm_os_queue_send_to_back(wm_osal.c.obj), (84 bytes).
+	Removing .text.wm_os_queue_send(wm_osal.c.obj), (8 bytes).
+	Removing .text.wm_os_queue_send_to_front(wm_osal.c.obj), (82 bytes).
+	Removing .text.wm_os_queue_space_available(wm_osal.c.obj), (8 bytes).
+	Removing .text.wm_os_queue_remove(wm_osal.c.obj), (244 bytes).
+	Removing .text.wm_os_queue_receive(wm_osal.c.obj), (80 bytes).
+	Removing .text.wm_os_queue_receive_ms(wm_osal.c.obj), (30 bytes).
+	Removing .text.wm_os_queue_peek(wm_osal.c.obj), (54 bytes).
+	Removing .text.wm_os_queue_flush(wm_osal.c.obj), (4 bytes).
+	Removing .text.wm_os_event_create(wm_osal.c.obj), (24 bytes).
+	Removing .text.wm_os_event_delete(wm_osal.c.obj), (14 bytes).
+	Removing .text.wm_os_event_get(wm_osal.c.obj), (60 bytes).
+	Removing .text.wm_os_event_put(wm_osal.c.obj), (68 bytes).
+	Removing .text.wm_os_event_get_bits(wm_osal.c.obj), (38 bytes).
+	Removing .text.wm_os_event_clear_bits(wm_osal.c.obj), (40 bytes).
+	Removing .text.wm_os_get_time(wm_osal.c.obj), (8 bytes).
+	Removing .text.wm_os_timer_create(wm_osal.c.obj), (120 bytes).
+	Removing .text.wm_os_timer_create_ms(wm_osal.c.obj), (62 bytes).
+	Removing .text.wm_os_timer_start(wm_osal.c.obj), (80 bytes).
+	Removing .text.wm_os_timer_change(wm_osal.c.obj), (118 bytes).
+	Removing .text.wm_os_timer_change_ms(wm_osal.c.obj), (30 bytes).
+	Removing .text.wm_os_timer_stop(wm_osal.c.obj), (72 bytes).
+	Removing .text.wm_os_timer_reset(wm_osal.c.obj), (80 bytes).
+	Removing .text.wm_os_timer_active(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_timer_expirytime(wm_osal.c.obj), (8 bytes).
+	Removing .text.wm_os_timer_delete(wm_osal.c.obj), (46 bytes).
+	Removing .text.wm_os_time_delay(wm_osal.c.obj), (8 bytes).
+	Removing .text.wm_os_time_delay_ms(wm_osal.c.obj), (22 bytes).
+	Removing .text.wm_os_disp_task_stat_info(wm_osal.c.obj), (52 bytes).
+	Removing .text.wm_os_disp_sys_runtime_stats_info(wm_osal.c.obj), (2 bytes).
+	Removing .text.wm_os_get_type(wm_osal.c.obj), (4 bytes).
+	Removing .text.wm_os_time_tick(wm_osal.c.obj), (2 bytes).
+	Removing .text.wm_os_get_isr_count(wm_osal.c.obj), (10 bytes).
+	Removing .text.wm_os_calloc_tracing(wm_osal.c.obj), (32 bytes).
+	Removing .text.malloc(wm_osal.c.obj), (20 bytes).
+	Removing .text.free(wm_osal.c.obj), (8 bytes).
+	Removing .text.realloc(wm_osal.c.obj), (28 bytes).
+	Removing .text.calloc(wm_osal.c.obj), (20 bytes).
+	Removing .rodata.wm_os_disp_task_stat_info.str1.1(wm_osal.c.obj), (4 bytes).
+	Removing .rodata.wm_os_queue_create.str1.1(wm_osal.c.obj), (69 bytes).
+	Removing .rodata.wm_os_queue_remove.str1.1(wm_osal.c.obj), (17 bytes).
+	Removing .text(wm_printf.c.obj), (0 bytes).
+	Removing .data(wm_printf.c.obj), (0 bytes).
+	Removing .bss(wm_printf.c.obj), (0 bytes).
+	Removing .text.set_bit(wm_printf.c.obj), (22 bytes).
+	Removing .text.strntoumax(wm_printf.c.obj), (290 bytes).
+	Removing .text.wm_vsscanf(wm_printf.c.obj), (1188 bytes).
+	Removing .rodata.wm_vsscanf(wm_printf.c.obj), (28 bytes).
+	Removing .text.wm_vprintf(wm_printf.c.obj), (28 bytes).
+	Removing .text(wm_system.c.obj), (0 bytes).
+	Removing .data(wm_system.c.obj), (0 bytes).
+	Removing .bss(wm_system.c.obj), (0 bytes).
+	Removing .text(wm_stub_drv.c.obj), (0 bytes).
+	Removing .data(wm_stub_drv.c.obj), (0 bytes).
+	Removing .bss(wm_stub_drv.c.obj), (0 bytes).
+	Removing .text.io_cfg_option4(wm_stub_drv.c.obj), (104 bytes).
+	Removing .text.hd_sha1_compress(wm_stub_drv.c.obj), (112 bytes).
+	Removing .text.tls_crypto_aes_encrypt_decrypt.constprop.4(wm_stub_drv.c.obj), (144 bytes).
+	Removing .text.tls_pmu_timer1_isr_register(wm_stub_drv.c.obj), (2 bytes).
+	Removing .text.adc_get_interTemp(wm_stub_drv.c.obj), (6 bytes).
+	Removing .text.tls_irq_disable(wm_stub_drv.c.obj), (28 bytes).
+	Removing .text.wm_stub_drv_sha1(wm_stub_drv.c.obj), (448 bytes).
+	Removing .text.wm_stub_drv_random(wm_stub_drv.c.obj), (168 bytes).
+	Removing .text.wm_stub_drv_aes_decrypt_init(wm_stub_drv.c.obj), (120 bytes).
+	Removing .text.wm_stub_drv_aes_decrypt_deinit(wm_stub_drv.c.obj), (8 bytes).
+	Removing .text.wm_stub_drv_aes_decrypt(wm_stub_drv.c.obj), (10 bytes).
+	Removing .text.wm_stub_drv_aes_encrypt_init(wm_stub_drv.c.obj), (120 bytes).
+	Removing .text.wm_stub_drv_aes_encrypt_deinit(wm_stub_drv.c.obj), (8 bytes).
+	Removing .text.wm_stub_drv_aes_encrypt(wm_stub_drv.c.obj), (10 bytes).
+	Removing .text.wm_stub_drv_crypto_crc(wm_stub_drv.c.obj), (172 bytes).
+	Removing .text.wm_stub_drv_md5_n(wm_stub_drv.c.obj), (56 bytes).
+	Removing .text.wm_stub_drv_psram_init(wm_stub_drv.c.obj), (112 bytes).
+	Removing .rodata.wm_stub_drv_aes_decrypt_init.str1.1(wm_stub_drv.c.obj), (71 bytes).
+	Removing .text(memory_layout.c.obj), (0 bytes).
+	Removing .data(memory_layout.c.obj), (0 bytes).
+	Removing .bss(memory_layout.c.obj), (0 bytes).
+	Removing .text(printf_port.c.obj), (0 bytes).
+	Removing .data(printf_port.c.obj), (0 bytes).
+	Removing .bss(printf_port.c.obj), (0 bytes).
+	Removing .text.get_printf_port(printf_port.c.obj), (12 bytes).
+	Removing .text(soc_init.c.obj), (0 bytes).
+	Removing .data(soc_init.c.obj), (0 bytes).
+	Removing .bss(soc_init.c.obj), (0 bytes).
+	Removing .text(wm_ll_pwm.c.obj), (0 bytes).
+	Removing .data(wm_ll_pwm.c.obj), (0 bytes).
+	Removing .bss(wm_ll_pwm.c.obj), (0 bytes).
+	Removing .text.wm_ll_pwm_clear_period_int_status(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_get_period_int_status(wm_ll_pwm.c.obj), (14 bytes).
+	Removing .text.wm_ll_pwm_get_brake_en(wm_ll_pwm.c.obj), (14 bytes).
+	Removing .text.wm_ll_pwm_get_brake_level_high(wm_ll_pwm.c.obj), (14 bytes).
+	Removing .text.wm_ll_pwm_set_clkdiv(wm_ll_pwm.c.obj), (36 bytes).
+	Removing .rodata.wm_ll_pwm_set_clkdiv(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_get_clkdiv(wm_ll_pwm.c.obj), (42 bytes).
+	Removing .rodata.wm_ll_pwm_get_clkdiv(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_set_chan_cnt_en(wm_ll_pwm.c.obj), (36 bytes).
+	Removing .text.wm_ll_pwm_set_capture_inv_en(wm_ll_pwm.c.obj), (24 bytes).
+	Removing .text.wm_ll_pwm_get_capture_inv_en(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_set_capture_en(wm_ll_pwm.c.obj), (24 bytes).
+	Removing .text.wm_ll_pwm_get_capture_en(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_set_cnt_type(wm_ll_pwm.c.obj), (64 bytes).
+	Removing .rodata.wm_ll_pwm_set_cnt_type(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_get_cnt_type(wm_ll_pwm.c.obj), (60 bytes).
+	Removing .rodata.wm_ll_pwm_get_cnt_type(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_set_twosync_mode_en(wm_ll_pwm.c.obj), (54 bytes).
+	Removing .text.wm_ll_pwm_get_twosync_mode_en(wm_ll_pwm.c.obj), (32 bytes).
+	Removing .text.wm_ll_pwm_set_ch_output_state(wm_ll_pwm.c.obj), (30 bytes).
+	Removing .text.wm_ll_pwm_get_ch_output_state(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_set_autoload_mode_en(wm_ll_pwm.c.obj), (58 bytes).
+	Removing .text.wm_ll_pwm_get_autoload_mode_en(wm_ll_pwm.c.obj), (36 bytes).
+	Removing .text.wm_ll_pwm_set_output_ploarity_inv_en(wm_ll_pwm.c.obj), (58 bytes).
+	Removing .text.wm_ll_pwm_get_output_ploarity_inv_en(wm_ll_pwm.c.obj), (30 bytes).
+	Removing .text.wm_ll_pwm_set_complement_en(wm_ll_pwm.c.obj), (50 bytes).
+	Removing .text.wm_ll_pwm_get_complement_en(wm_ll_pwm.c.obj), (32 bytes).
+	Removing .text.wm_ll_pwm_set_period(wm_ll_pwm.c.obj), (38 bytes).
+	Removing .rodata.wm_ll_pwm_set_period(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_get_period(wm_ll_pwm.c.obj), (44 bytes).
+	Removing .rodata.wm_ll_pwm_get_period(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_set_period_num(wm_ll_pwm.c.obj), (38 bytes).
+	Removing .rodata.wm_ll_pwm_set_period_num(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_get_period_num(wm_ll_pwm.c.obj), (44 bytes).
+	Removing .rodata.wm_ll_pwm_get_period_num(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_set_cmp_cnt(wm_ll_pwm.c.obj), (38 bytes).
+	Removing .rodata.wm_ll_pwm_set_cmp_cnt(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_get_cmp_cnt(wm_ll_pwm.c.obj), (44 bytes).
+	Removing .rodata.wm_ll_pwm_get_cmp_cnt(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_get_dead_time_valid(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_set_dead_time_cnt(wm_ll_pwm.c.obj), (16 bytes).
+	Removing .text.wm_ll_pwm_get_dead_time_cnt(wm_ll_pwm.c.obj), (22 bytes).
+	Removing .text.wm_ll_pwm_set_dma_request_int_en(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_get_dma_request_int_en(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_set_falling_int_en(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_get_falling_int_en(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_set_rising_int_en(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_get_rising_int_en(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_set_period_int_en(wm_ll_pwm.c.obj), (36 bytes).
+	Removing .text.wm_ll_pwm_get_period_int_en(wm_ll_pwm.c.obj), (14 bytes).
+	Removing .text.wm_ll_pwm_clear_cnt_overflow_status(wm_ll_pwm.c.obj), (32 bytes).
+	Removing .text.wm_ll_pwm_get_cnt_overflow_status(wm_ll_pwm.c.obj), (20 bytes).
+	Removing .text.wm_ll_pwm_clear_falling_int_status(wm_ll_pwm.c.obj), (32 bytes).
+	Removing .text.wm_ll_pwm_get_falling_int_status(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_clear_rising_int_status(wm_ll_pwm.c.obj), (32 bytes).
+	Removing .text.wm_ll_pwm_get_rising_int_status(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_clear_cap_falling_int_status(wm_ll_pwm.c.obj), (32 bytes).
+	Removing .text.wm_ll_pwm_get_cap_falling_int_status(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_clear_cap_rising_int_status(wm_ll_pwm.c.obj), (32 bytes).
+	Removing .text.wm_ll_pwm_get_cap_rising_int_status(wm_ll_pwm.c.obj), (28 bytes).
+	Removing .text.wm_ll_pwm_set_brake_en(wm_ll_pwm.c.obj), (40 bytes).
+	Removing .text.wm_ll_pwm_set_brake_level(wm_ll_pwm.c.obj), (40 bytes).
+	Removing .debug_info(wm_ll_pwm.c.obj), (6215 bytes).
+	Removing .debug_abbrev(wm_ll_pwm.c.obj), (659 bytes).
+	Removing .debug_loc(wm_ll_pwm.c.obj), (1848 bytes).
+	Removing .debug_aranges(wm_ll_pwm.c.obj), (440 bytes).
+	Removing .debug_ranges(wm_ll_pwm.c.obj), (424 bytes).
+	Removing .debug_macinfo(wm_ll_pwm.c.obj), (16307 bytes).
+	Removing .debug_line(wm_ll_pwm.c.obj), (2335 bytes).
+	Removing .debug_str(wm_ll_pwm.c.obj), (3378 bytes).
+	Removing .comment(wm_ll_pwm.c.obj), (67 bytes).
+	Removing .debug_frame(wm_ll_pwm.c.obj), (848 bytes).
+	Removing .csky.attributes(wm_ll_pwm.c.obj), (56 bytes).
+	Removing .text(elog.c.obj), (0 bytes).
+	Removing .data(elog.c.obj), (0 bytes).
+	Removing .bss(elog.c.obj), (0 bytes).
+	Removing .text.elog_deinit(elog.c.obj), (28 bytes).
+	Removing .text.elog_stop(elog.c.obj), (24 bytes).
+	Removing .text.elog_set_output_enabled(elog.c.obj), (12 bytes).
+	Removing .text.elog_get_output_enabled(elog.c.obj), (12 bytes).
+	Removing .text.elog_get_filter_lvl(elog.c.obj), (12 bytes).
+	Removing .text.elog_set_filter_tag(elog.c.obj), (20 bytes).
+	Removing .text.elog_set_filter_kw(elog.c.obj), (20 bytes).
+	Removing .text.elog_raw(elog.c.obj), (84 bytes).
+	Removing .text.elog_set_filter(elog.c.obj), (116 bytes).
+	Removing .text.elog_set_filter_tag_lvl(elog.c.obj), (308 bytes).
+	Removing .text.elog_assert_set_hook(elog.c.obj), (12 bytes).
+	Removing .text.elog_find_lvl(elog.c.obj), (556 bytes).
+	Removing .text.elog_find_tag(elog.c.obj), (340 bytes).
+	Removing .text.elog_hexdump(elog.c.obj), (440 bytes).
+	Removing .rodata.CSWTCH.47(elog.c.obj), (23 bytes).
+	Removing .rodata.__FUNCTION__.4023(elog.c.obj), (16 bytes).
+	Removing .rodata.__FUNCTION__.4056(elog.c.obj), (24 bytes).
+	Removing .rodata.__FUNCTION__.4126(elog.c.obj), (14 bytes).
+	Removing .rodata.__FUNCTION__.4148(elog.c.obj), (14 bytes).
+	Removing .rodata.elog_find_lvl.str1.1(elog.c.obj), (317 bytes).
+	Removing .rodata.elog_find_tag.str1.1(elog.c.obj), (74 bytes).
+	Removing .rodata.elog_hexdump.str1.1(elog.c.obj), (34 bytes).
+	Removing .text(elog_async.c.obj), (0 bytes).
+	Removing .data(elog_async.c.obj), (0 bytes).
+	Removing .bss(elog_async.c.obj), (0 bytes).
+	Removing .debug_info(elog_async.c.obj), (190 bytes).
+	Removing .debug_abbrev(elog_async.c.obj), (100 bytes).
+	Removing .debug_aranges(elog_async.c.obj), (24 bytes).
+	Removing .debug_macinfo(elog_async.c.obj), (19631 bytes).
+	Removing .debug_line(elog_async.c.obj), (634 bytes).
+	Removing .debug_str(elog_async.c.obj), (344 bytes).
+	Removing .comment(elog_async.c.obj), (67 bytes).
+	Removing .csky.attributes(elog_async.c.obj), (56 bytes).
+	Removing .text(elog_buf.c.obj), (0 bytes).
+	Removing .data(elog_buf.c.obj), (0 bytes).
+	Removing .bss(elog_buf.c.obj), (0 bytes).
+	Removing .debug_info(elog_buf.c.obj), (190 bytes).
+	Removing .debug_abbrev(elog_buf.c.obj), (100 bytes).
+	Removing .debug_aranges(elog_buf.c.obj), (24 bytes).
+	Removing .debug_macinfo(elog_buf.c.obj), (19631 bytes).
+	Removing .debug_line(elog_buf.c.obj), (632 bytes).
+	Removing .debug_str(elog_buf.c.obj), (342 bytes).
+	Removing .comment(elog_buf.c.obj), (67 bytes).
+	Removing .csky.attributes(elog_buf.c.obj), (56 bytes).
+	Removing .text(elog_utils.c.obj), (0 bytes).
+	Removing .data(elog_utils.c.obj), (0 bytes).
+	Removing .bss(elog_utils.c.obj), (0 bytes).
+	Removing .text.elog_cpyln(elog_utils.c.obj), (184 bytes).
+	Removing .text.elog_memcpy(elog_utils.c.obj), (168 bytes).
+	Removing .rodata.__FUNCTION__.3804(elog_utils.c.obj), (11 bytes).
+	Removing .rodata.__FUNCTION__.3817(elog_utils.c.obj), (12 bytes).
+	Removing .rodata.elog_cpyln.str1.1(elog_utils.c.obj), (9 bytes).
+	Removing .text(elog_port.c.obj), (0 bytes).
+	Removing .data(elog_port.c.obj), (0 bytes).
+	Removing .bss(elog_port.c.obj), (0 bytes).
+	Removing .text(wm_log.c.obj), (0 bytes).
+	Removing .data(wm_log.c.obj), (0 bytes).
+	Removing .bss(wm_log.c.obj), (0 bytes).
+	Removing .text.wm_log_dump(wm_log.c.obj), (8 bytes).
+	Removing .text.wm_log_set_level(wm_log.c.obj), (10 bytes).
+	Removing .text.wm_log_get_level(wm_log.c.obj), (8 bytes).
+	Removing .text.wm_log_set_tag_level(wm_log.c.obj), (48 bytes).
+	Removing .text.wm_log_get_tag_level(wm_log.c.obj), (44 bytes).
+	Removing .rodata.wm_log_set_tag_level.str1.1(wm_log.c.obj), (2 bytes).
+	Removing .text(wm_heap.c.obj), (0 bytes).
+	Removing .data(wm_heap.c.obj), (0 bytes).
+	Removing .bss(wm_heap.c.obj), (0 bytes).
+	Removing .text.wm_heap_print_stats_internal(wm_heap.c.obj), (252 bytes).
+	Removing .text.wm_heap_print_stats(wm_heap.c.obj), (16 bytes).
+	Removing .text.wm_heap_print_tracing(wm_heap.c.obj), (152 bytes).
+	Removing .text.wm_heap_caps_realloc_tracing(wm_heap.c.obj), (148 bytes).
+	Removing .rodata.wm_heap_print_stats_internal.str1.1(wm_heap.c.obj), (65 bytes).
+	Removing .rodata.wm_heap_print_tracing.str1.1(wm_heap.c.obj), (99 bytes).
+	Removing .text(wm_hal_fls.c.obj), (0 bytes).
+	Removing .data(wm_hal_fls.c.obj), (0 bytes).
+	Removing .bss(wm_hal_fls.c.obj), (0 bytes).
+	Removing .text.wm_ll_fls_program_sr.constprop.0(wm_hal_fls.c.obj), (56 bytes).
+	Removing .text.wm_ll_fls_write_bp_bit_for_2wreg.constprop.4(wm_hal_fls.c.obj), (166 bytes).
+	Removing .text.wm_ll_fls_write_bp_bit_for_1wreg.constprop.5(wm_hal_fls.c.obj), (128 bytes).
+	Removing .text.wm_hal_fls_unlock(wm_hal_fls.c.obj), (220 bytes).
+	Removing .text.wm_hal_fls_lock(wm_hal_fls.c.obj), (224 bytes).
+	Removing .text.wm_hal_fls_erase(wm_hal_fls.c.obj), (168 bytes).
+	Removing .text.wm_hal_fls_write(wm_hal_fls.c.obj), (260 bytes).
+	Removing .text.wm_hal_fls_write_with_erase(wm_hal_fls.c.obj), (324 bytes).
+	Removing .text.wm_hal_fls_deinit(wm_hal_fls.c.obj), (28 bytes).
+	Removing .rodata.__FUNCTION__.5657(wm_hal_fls.c.obj), (17 bytes).
+	Removing .rodata.__FUNCTION__.5672(wm_hal_fls.c.obj), (17 bytes).
+	Removing .rodata.__FUNCTION__.5689(wm_hal_fls.c.obj), (28 bytes).
+	Removing .rodata.wm_hal_fls_erase.str1.1(wm_hal_fls.c.obj), (34 bytes).
+	Removing .rodata.wm_hal_fls_write.str1.1(wm_hal_fls.c.obj), (34 bytes).
+	Removing .text(wm_hal_irq.c.obj), (0 bytes).
+	Removing .data(wm_hal_irq.c.obj), (0 bytes).
+	Removing .bss(wm_hal_irq.c.obj), (0 bytes).
+	Removing .text.wm_hal_irq_detach_hw_vector(wm_hal_irq.c.obj), (44 bytes).
+	Removing .text.wm_hal_irq_attach_sw_vector(wm_hal_irq.c.obj), (76 bytes).
+	Removing .text.wm_hal_irq_detach_sw_vector(wm_hal_irq.c.obj), (80 bytes).
+	Removing .text.wm_hal_irq_save(wm_hal_irq.c.obj), (10 bytes).
+	Removing .text.wm_hal_irq_restore(wm_hal_irq.c.obj), (6 bytes).
+	Removing .text.wm_hal_irq_enable(wm_hal_irq.c.obj), (32 bytes).
+	Removing .text.wm_hal_irq_disable(wm_hal_irq.c.obj), (32 bytes).
+	Removing .text.wm_hal_irq_set_pending(wm_hal_irq.c.obj), (32 bytes).
+	Removing .rodata.wm_hal_irq_attach_sw_vector.str1.1(wm_hal_irq.c.obj), (59 bytes).
+	Removing .rodata.wm_hal_irq_detach_sw_vector.str1.1(wm_hal_irq.c.obj), (59 bytes).
+	Removing .text(wm_debug.c.obj), (0 bytes).
+	Removing .data(wm_debug.c.obj), (0 bytes).
+	Removing .bss(wm_debug.c.obj), (0 bytes).
+	Removing .text(getopt_long_only.c.obj), (0 bytes).
+	Removing .data(getopt_long_only.c.obj), (0 bytes).
+	Removing .bss(getopt_long_only.c.obj), (0 bytes).
+	Removing .text.exchange(getopt_long_only.c.obj), (192 bytes).
+	Removing .text._getopt_internal(getopt_long_only.c.obj), (1944 bytes).
+	Removing .text.getopt(getopt_long_only.c.obj), (18 bytes).
+	Removing .text.getopt_long(getopt_long_only.c.obj), (28 bytes).
+	Removing .text.getopt_long_only(getopt_long_only.c.obj), (28 bytes).
+	Removing .bss.__getopt_initialized(getopt_long_only.c.obj), (4 bytes).
+	Removing .bss.first_nonopt(getopt_long_only.c.obj), (4 bytes).
+	Removing .bss.last_nonopt(getopt_long_only.c.obj), (4 bytes).
+	Removing .bss.nextchar(getopt_long_only.c.obj), (4 bytes).
+	Removing .bss.optarg(getopt_long_only.c.obj), (4 bytes).
+	Removing .bss.ordering(getopt_long_only.c.obj), (4 bytes).
+	Removing .bss.posixly_correct(getopt_long_only.c.obj), (4 bytes).
+	Removing .data.opterr(getopt_long_only.c.obj), (4 bytes).
+	Removing .data.optind(getopt_long_only.c.obj), (4 bytes).
+	Removing .data.optopt(getopt_long_only.c.obj), (4 bytes).
+	Removing .rodata._getopt_internal.str1.1(getopt_long_only.c.obj), (412 bytes).
+	Removing .debug_info(getopt_long_only.c.obj), (1577 bytes).
+	Removing .debug_abbrev(getopt_long_only.c.obj), (501 bytes).
+	Removing .debug_loc(getopt_long_only.c.obj), (1930 bytes).
+	Removing .debug_aranges(getopt_long_only.c.obj), (64 bytes).
+	Removing .debug_ranges(getopt_long_only.c.obj), (248 bytes).
+	Removing .debug_macinfo(getopt_long_only.c.obj), (14472 bytes).
+	Removing .debug_line(getopt_long_only.c.obj), (1186 bytes).
+	Removing .debug_str(getopt_long_only.c.obj), (635 bytes).
+	Removing .comment(getopt_long_only.c.obj), (67 bytes).
+	Removing .debug_frame(getopt_long_only.c.obj), (176 bytes).
+	Removing .csky.attributes(getopt_long_only.c.obj), (56 bytes).
+	Removing .text(wm_utils.c.obj), (0 bytes).
+	Removing .data(wm_utils.c.obj), (0 bytes).
+	Removing .bss(wm_utils.c.obj), (0 bytes).
+	Removing .text.wm_set_cpu_usage_duration(wm_utils.c.obj), (6 bytes).
+	Removing .text.wm_atohex(wm_utils.c.obj), (48 bytes).
+	Removing .text.wm_hex2byte(wm_utils.c.obj), (38 bytes).
+	Removing .text.wm_hex_str_to_array(wm_utils.c.obj), (90 bytes).
+	Removing .text.wm_atoi(wm_utils.c.obj), (98 bytes).
+	Removing .text.memrchr(wm_utils.c.obj), (24 bytes).
+	Removing .text.strdup(wm_utils.c.obj), (52 bytes).
+	Removing .text.strcasecmp(wm_utils.c.obj), (70 bytes).
+	Removing .text.strncasecmp(wm_utils.c.obj), (50 bytes).
+	Removing .text.strlcpy(wm_utils.c.obj), (58 bytes).
+	Removing .text.strnlen(wm_utils.c.obj), (22 bytes).
+	Removing .text.gettimeofday(wm_utils.c.obj), (32 bytes).
+	Removing .text.time(wm_utils.c.obj), (26 bytes).
+	Removing .text.gmtime_r(wm_utils.c.obj), (276 bytes).
+	Removing .text.localtime_r(wm_utils.c.obj), (24 bytes).
+	Removing .text.getenv(wm_utils.c.obj), (4 bytes).
+	Removing .text.get_crc8(wm_utils.c.obj), (32 bytes).
+	Removing .text.isdigitstr(wm_utils.c.obj), (34 bytes).
+	Removing .text.isstring(wm_utils.c.obj), (40 bytes).
+	Removing .text.remove_string_quotation_mark(wm_utils.c.obj), (66 bytes).
+	Removing .rodata.__spm(wm_utils.c.obj), (26 bytes).
+	Removing .rodata.crc8_tbl(wm_utils.c.obj), (256 bytes).
+	Removing .rodata.strdup.str1.1(wm_utils.c.obj), (70 bytes).
+	Removing .debug_info(wm_utils.c.obj), (2797 bytes).
+	Removing .debug_abbrev(wm_utils.c.obj), (671 bytes).
+	Removing .debug_loc(wm_utils.c.obj), (1953 bytes).
+	Removing .debug_aranges(wm_utils.c.obj), (184 bytes).
+	Removing .debug_ranges(wm_utils.c.obj), (280 bytes).
+	Removing .debug_macinfo(wm_utils.c.obj), (60931 bytes).
+	Removing .debug_line(wm_utils.c.obj), (1992 bytes).
+	Removing .debug_str(wm_utils.c.obj), (1431 bytes).
+	Removing .comment(wm_utils.c.obj), (67 bytes).
+	Removing .debug_frame(wm_utils.c.obj), (504 bytes).
+	Removing .csky.attributes(wm_utils.c.obj), (56 bytes).
+	Removing .text(wm_partition_table.c.obj), (0 bytes).
+	Removing .data(wm_partition_table.c.obj), (0 bytes).
+	Removing .bss(wm_partition_table.c.obj), (0 bytes).
+	Removing .text.wm_partition_table_print(wm_partition_table.c.obj), (172 bytes).
+	Removing .text.wm_partition_table_find(wm_partition_table.c.obj), (164 bytes).
+	Removing .rodata.wm_partition_table_print.str1.1(wm_partition_table.c.obj), (96 bytes).
+	Removing .text(croutine.c.obj), (0 bytes).
+	Removing .data(croutine.c.obj), (0 bytes).
+	Removing .bss(croutine.c.obj), (0 bytes).
+	Removing .debug_info(croutine.c.obj), (164 bytes).
+	Removing .debug_abbrev(croutine.c.obj), (82 bytes).
+	Removing .debug_aranges(croutine.c.obj), (24 bytes).
+	Removing .debug_macinfo(croutine.c.obj), (49726 bytes).
+	Removing .debug_line(croutine.c.obj), (998 bytes).
+	Removing .debug_str(croutine.c.obj), (346 bytes).
+	Removing .comment(croutine.c.obj), (67 bytes).
+	Removing .csky.attributes(croutine.c.obj), (56 bytes).
+	Removing .text(event_groups.c.obj), (0 bytes).
+	Removing .data(event_groups.c.obj), (0 bytes).
+	Removing .bss(event_groups.c.obj), (0 bytes).
+	Removing .text.xEventGroupCreateStatic(event_groups.c.obj), (84 bytes).
+	Removing .text.xEventGroupCreate(event_groups.c.obj), (40 bytes).
+	Removing .text.xEventGroupWaitBits(event_groups.c.obj), (272 bytes).
+	Removing .text.xEventGroupClearBits(event_groups.c.obj), (84 bytes).
+	Removing .text.vEventGroupClearBitsCallback(event_groups.c.obj), (8 bytes).
+	Removing .text.xEventGroupClearBitsFromISR(event_groups.c.obj), (20 bytes).
+	Removing .text.xEventGroupGetBitsFromISR(event_groups.c.obj), (16 bytes).
+	Removing .text.xEventGroupSetBits(event_groups.c.obj), (176 bytes).
+	Removing .text.xEventGroupSync(event_groups.c.obj), (220 bytes).
+	Removing .text.vEventGroupSetBitsCallback(event_groups.c.obj), (8 bytes).
+	Removing .text.vEventGroupDelete(event_groups.c.obj), (80 bytes).
+	Removing .text.xEventGroupSetBitsFromISR(event_groups.c.obj), (20 bytes).
+	Removing .text.uxEventGroupGetNumber(event_groups.c.obj), (8 bytes).
+	Removing .text.vEventGroupSetNumber(event_groups.c.obj), (4 bytes).
+	Removing .rodata.xEventGroupCreateStatic.str1.1(event_groups.c.obj), (90 bytes).
+	Removing .debug_info(event_groups.c.obj), (2648 bytes).
+	Removing .debug_abbrev(event_groups.c.obj), (677 bytes).
+	Removing .debug_loc(event_groups.c.obj), (2316 bytes).
+	Removing .debug_aranges(event_groups.c.obj), (136 bytes).
+	Removing .debug_ranges(event_groups.c.obj), (192 bytes).
+	Removing .debug_macinfo(event_groups.c.obj), (50291 bytes).
+	Removing .debug_line(event_groups.c.obj), (1562 bytes).
+	Removing .debug_str(event_groups.c.obj), (1679 bytes).
+	Removing .comment(event_groups.c.obj), (67 bytes).
+	Removing .debug_frame(event_groups.c.obj), (380 bytes).
+	Removing .csky.attributes(event_groups.c.obj), (56 bytes).
+	Removing .text(list.c.obj), (0 bytes).
+	Removing .data(list.c.obj), (0 bytes).
+	Removing .bss(list.c.obj), (0 bytes).
+	Removing .text(queue.c.obj), (0 bytes).
+	Removing .data(queue.c.obj), (0 bytes).
+	Removing .bss(queue.c.obj), (0 bytes).
+	Removing .text.xQueueGetMutexHolder(queue.c.obj), (28 bytes).
+	Removing .text.xQueueGetMutexHolderFromISR(queue.c.obj), (48 bytes).
+	Removing .text.xQueueCreateCountingSemaphoreStatic(queue.c.obj), (84 bytes).
+	Removing .text.xQueueCreateMutexStatic(queue.c.obj), (30 bytes).
+	Removing .text.xQueueGiveMutexRecursive(queue.c.obj), (72 bytes).
+	Removing .text.xQueueTakeMutexRecursive(queue.c.obj), (80 bytes).
+	Removing .text.xQueuePeek(queue.c.obj), (332 bytes).
+	Removing .text.xQueuePeekFromISR(queue.c.obj), (120 bytes).
+	Removing .text.uxQueueMessagesWaiting(queue.c.obj), (48 bytes).
+	Removing .text.uxQueueSpacesAvailable(queue.c.obj), (52 bytes).
+	Removing .text.uxQueueMessagesWaitingFromISR(queue.c.obj), (36 bytes).
+	Removing .text.uxQueueGetQueueNumber(queue.c.obj), (4 bytes).
+	Removing .text.vQueueSetQueueNumber(queue.c.obj), (4 bytes).
+	Removing .text.ucQueueGetQueueType(queue.c.obj), (6 bytes).
+	Removing .text.xQueueIsQueueEmptyFromISR(queue.c.obj), (40 bytes).
+	Removing .text.xQueueIsQueueFullFromISR(queue.c.obj), (44 bytes).
+	Removing .text(stream_buffer.c.obj), (0 bytes).
+	Removing .data(stream_buffer.c.obj), (0 bytes).
+	Removing .bss(stream_buffer.c.obj), (0 bytes).
+	Removing .text.prvBytesInBuffer(stream_buffer.c.obj), (20 bytes).
+	Removing .text.prvInitialiseNewStreamBuffer(stream_buffer.c.obj), (76 bytes).
+	Removing .text.prvWriteBytesToBuffer(stream_buffer.c.obj), (140 bytes).
+	Removing .text.prvWriteMessageToBuffer(stream_buffer.c.obj), (70 bytes).
+	Removing .text.prvReadBytesFromBuffer(stream_buffer.c.obj), (148 bytes).
+	Removing .text.xStreamBufferGenericCreate(stream_buffer.c.obj), (132 bytes).
+	Removing .text.xStreamBufferGenericCreateStatic(stream_buffer.c.obj), (180 bytes).
+	Removing .text.vStreamBufferDelete(stream_buffer.c.obj), (60 bytes).
+	Removing .text.xStreamBufferReset(stream_buffer.c.obj), (92 bytes).
+	Removing .text.xStreamBufferSetTriggerLevel(stream_buffer.c.obj), (56 bytes).
+	Removing .text.xStreamBufferSpacesAvailable(stream_buffer.c.obj), (56 bytes).
+	Removing .text.xStreamBufferBytesAvailable(stream_buffer.c.obj), (40 bytes).
+	Removing .text.xStreamBufferSend(stream_buffer.c.obj), (312 bytes).
+	Removing .text.xStreamBufferSendFromISR(stream_buffer.c.obj), (160 bytes).
+	Removing .text.xStreamBufferReceive(stream_buffer.c.obj), (276 bytes).
+	Removing .text.xStreamBufferNextMessageLengthBytes(stream_buffer.c.obj), (104 bytes).
+	Removing .text.xStreamBufferReceiveFromISR(stream_buffer.c.obj), (196 bytes).
+	Removing .text.xStreamBufferIsEmpty(stream_buffer.c.obj), (44 bytes).
+	Removing .text.xStreamBufferIsFull(stream_buffer.c.obj), (60 bytes).
+	Removing .text.xStreamBufferSendCompletedFromISR(stream_buffer.c.obj), (80 bytes).
+	Removing .text.xStreamBufferReceiveCompletedFromISR(stream_buffer.c.obj), (80 bytes).
+	Removing .text.uxStreamBufferGetStreamBufferNumber(stream_buffer.c.obj), (4 bytes).
+	Removing .text.vStreamBufferSetStreamBufferNumber(stream_buffer.c.obj), (4 bytes).
+	Removing .text.ucStreamBufferGetStreamBufferType(stream_buffer.c.obj), (8 bytes).
+	Removing .rodata.prvInitialiseNewStreamBuffer.str1.1(stream_buffer.c.obj), (91 bytes).
+	Removing .debug_info(stream_buffer.c.obj), (4248 bytes).
+	Removing .debug_abbrev(stream_buffer.c.obj), (778 bytes).
+	Removing .debug_loc(stream_buffer.c.obj), (5615 bytes).
+	Removing .debug_aranges(stream_buffer.c.obj), (216 bytes).
+	Removing .debug_ranges(stream_buffer.c.obj), (272 bytes).
+	Removing .debug_macinfo(stream_buffer.c.obj), (52614 bytes).
+	Removing .debug_line(stream_buffer.c.obj), (2143 bytes).
+	Removing .debug_str(stream_buffer.c.obj), (2092 bytes).
+	Removing .comment(stream_buffer.c.obj), (67 bytes).
+	Removing .debug_frame(stream_buffer.c.obj), (732 bytes).
+	Removing .csky.attributes(stream_buffer.c.obj), (56 bytes).
+	Removing .text(tasks.c.obj), (0 bytes).
+	Removing .data(tasks.c.obj), (0 bytes).
+	Removing .bss(tasks.c.obj), (0 bytes).
+	Removing .text.prvTaskIsTaskSuspended.part.1(tasks.c.obj), (28 bytes).
+	Removing .text.vTaskDeleteEX(tasks.c.obj), (192 bytes).
+	Removing .text.eTaskGetState(tasks.c.obj), (144 bytes).
+	Removing .text.pvTaskSemGet(tasks.c.obj), (28 bytes).
+	Removing .text.vTaskSemSet(tasks.c.obj), (28 bytes).
+	Removing .text.uxTaskPriorityGet(tasks.c.obj), (36 bytes).
+	Removing .text.uxTaskPriorityGetFromISR(tasks.c.obj), (28 bytes).
+	Removing .text.vTaskPrioritySet(tasks.c.obj), (192 bytes).
+	Removing .text.vTaskResume(tasks.c.obj), (148 bytes).
+	Removing .text.xTaskResumeFromISR(tasks.c.obj), (160 bytes).
+	Removing .text.vTaskEndScheduler(tasks.c.obj), (24 bytes).
+	Removing .text.uxTaskGetNumberOfTasks(tasks.c.obj), (12 bytes).
+	Removing .text.vTaskSetName(tasks.c.obj), (76 bytes).
+	Removing .text.vTaskDelayUntil(tasks.c.obj), (160 bytes).
+	Removing .text.xTaskCatchUpTicks(tasks.c.obj), (64 bytes).
+	Removing .text.vTaskSetApplicationTaskTag(tasks.c.obj), (32 bytes).
+	Removing .text.xTaskGetApplicationTaskTag(tasks.c.obj), (32 bytes).
+	Removing .text.xTaskGetApplicationTaskTagFromISR(tasks.c.obj), (28 bytes).
+	Removing .text.xTaskCallApplicationTaskHook(tasks.c.obj), (32 bytes).
+	Removing .text.vTaskSuspend(tasks.c.obj), (184 bytes).
+	Removing .text.vTaskPlaceOnUnorderedEventList(tasks.c.obj), (96 bytes).
+	Removing .text.vTaskRemoveFromUnorderedEventList(tasks.c.obj), (144 bytes).
+	Removing .text.vTaskSetTimeOutState(tasks.c.obj), (64 bytes).
+	Removing .text.uxTaskGetTaskNumber(tasks.c.obj), (8 bytes).
+	Removing .text.vTaskSetTaskNumber(tasks.c.obj), (8 bytes).
+	Removing .text.vTaskGetInfo(tasks.c.obj), (132 bytes).
+	Removing .text.prvListTasksWithinSingleList(tasks.c.obj), (82 bytes).
+	Removing .text.uxTaskGetSystemState(tasks.c.obj), (176 bytes).
+	Removing .text.xTaskGetCurrentTaskHandle(tasks.c.obj), (12 bytes).
+	Removing .text.vTaskList(tasks.c.obj), (180 bytes).
+	Removing .text.uxTaskResetEventItemValue(tasks.c.obj), (24 bytes).
+	Removing .text.ulTaskGenericNotifyTake(tasks.c.obj), (128 bytes).
+	Removing .text.xTaskGenericNotifyWait(tasks.c.obj), (160 bytes).
+	Removing .text.xTaskGenericNotify(tasks.c.obj), (272 bytes).
+	Removing .rodata.xTaskGenericNotify(tasks.c.obj), (20 bytes).
+	Removing .text.xTaskGenericNotifyFromISR(tasks.c.obj), (300 bytes).
+	Removing .rodata.xTaskGenericNotifyFromISR(tasks.c.obj), (20 bytes).
+	Removing .text.vTaskGenericNotifyGiveFromISR(tasks.c.obj), (216 bytes).
+	Removing .text.xTaskGenericNotifyStateClear(tasks.c.obj), (80 bytes).
+	Removing .text.ulTaskGenericNotifyValueClear(tasks.c.obj), (44 bytes).
+	Removing .rodata.CSWTCH.241(tasks.c.obj), (5 bytes).
+	Removing .rodata.vTaskList.str1.1(tasks.c.obj), (15 bytes).
+	Removing .text(timers.c.obj), (0 bytes).
+	Removing .data(timers.c.obj), (0 bytes).
+	Removing .bss(timers.c.obj), (0 bytes).
+	Removing .text.xTimerCreateStatic(timers.c.obj), (140 bytes).
+	Removing .text.xTimerGetTimerDaemonTaskHandle(timers.c.obj), (44 bytes).
+	Removing .text.xTimerGetPeriod(timers.c.obj), (36 bytes).
+	Removing .text.vTimerSetReloadMode(timers.c.obj), (68 bytes).
+	Removing .text.uxTimerGetReloadMode(timers.c.obj), (56 bytes).
+	Removing .text.xTimerGetExpiryTime(timers.c.obj), (36 bytes).
+	Removing .text.pcTimerGetName(timers.c.obj), (36 bytes).
+	Removing .text.xTimerIsTimerActive(timers.c.obj), (56 bytes).
+	Removing .text.pvTimerGetTimerID(timers.c.obj), (48 bytes).
+	Removing .text.vTimerSetTimerID(timers.c.obj), (48 bytes).
+	Removing .text.xTimerPendFunctionCallFromISR(timers.c.obj), (40 bytes).
+	Removing .text.xTimerPendFunctionCall(timers.c.obj), (76 bytes).
+	Removing .text.uxTimerGetTimerNumber(timers.c.obj), (4 bytes).
+	Removing .text.vTimerSetTimerNumber(timers.c.obj), (4 bytes).
+	Removing .text(port.c.obj), (0 bytes).
+	Removing .data(port.c.obj), (0 bytes).
+	Removing .bss(port.c.obj), (0 bytes).
+	Removing .text.vPortEndScheduler(port.c.obj), (2 bytes).
+	Removing .text.vPortYield(port.c.obj), (2 bytes).
+	Removing .text.cpu_intrpt_restore(port.c.obj), (32 bytes).
+	Removing .bss.ulLastTaskPrio(port.c.obj), (4 bytes).
+	Removing .data.ulCriticalNesting(port.c.obj), (4 bytes).
+	Removing .data(cpu_task_sw.S.obj), (0 bytes).
+	Removing .bss(cpu_task_sw.S.obj), (0 bytes).
+	Removing .text(wm_drv_fls.c.obj), (0 bytes).
+	Removing .data(wm_drv_fls.c.obj), (0 bytes).
+	Removing .bss(wm_drv_fls.c.obj), (0 bytes).
+	Removing .text.wm_drv_fls_unlock(wm_drv_fls.c.obj), (84 bytes).
+	Removing .text.wm_drv_fls_lock(wm_drv_fls.c.obj), (84 bytes).
+	Removing .text.wm_drv_fls_erase(wm_drv_fls.c.obj), (92 bytes).
+	Removing .text.wm_drv_fls_write(wm_drv_fls.c.obj), (96 bytes).
+	Removing .text.wm_drv_fls_write_with_erase(wm_drv_fls.c.obj), (96 bytes).
+	Removing .text.wm_drv_fls_deinit(wm_drv_fls.c.obj), (32 bytes).
+	Removing .rodata.__FUNCTION__.5639(wm_drv_fls.c.obj), (18 bytes).
+	Removing .rodata.__FUNCTION__.5644(wm_drv_fls.c.obj), (16 bytes).
+	Removing .rodata.__FUNCTION__.5657(wm_drv_fls.c.obj), (17 bytes).
+	Removing .rodata.__FUNCTION__.5664(wm_drv_fls.c.obj), (17 bytes).
+	Removing .rodata.__FUNCTION__.5671(wm_drv_fls.c.obj), (28 bytes).
+	Removing .text(wm_drv_irq.c.obj), (0 bytes).
+	Removing .data(wm_drv_irq.c.obj), (0 bytes).
+	Removing .bss(wm_drv_irq.c.obj), (0 bytes).
+	Removing .text.wm_drv_irq_attach_hw_vector(wm_drv_irq.c.obj), (32 bytes).
+	Removing .text.wm_drv_irq_detach_hw_vector(wm_drv_irq.c.obj), (28 bytes).
+	Removing .text.wm_drv_irq_attach_sw_vector(wm_drv_irq.c.obj), (36 bytes).
+	Removing .text.wm_drv_irq_detach_sw_vector(wm_drv_irq.c.obj), (28 bytes).
+	Removing .text.wm_drv_irq_save(wm_drv_irq.c.obj), (8 bytes).
+	Removing .text.wm_drv_irq_restore(wm_drv_irq.c.obj), (8 bytes).
+	Removing .text.wm_drv_irq_enable(wm_drv_irq.c.obj), (28 bytes).
+	Removing .text.wm_drv_irq_disable(wm_drv_irq.c.obj), (28 bytes).
+	Removing .text.wm_drv_irq_set_pending(wm_drv_irq.c.obj), (8 bytes).
+	Removing .text.wm_drv_irq_clear_pending(wm_drv_irq.c.obj), (8 bytes).
+	Removing .text.wm_drv_irq_set_wakeup(wm_drv_irq.c.obj), (8 bytes).
+	Removing .debug_info(wm_drv_irq.c.obj), (1609 bytes).
+	Removing .debug_abbrev(wm_drv_irq.c.obj), (405 bytes).
+	Removing .debug_loc(wm_drv_irq.c.obj), (670 bytes).
+	Removing .debug_aranges(wm_drv_irq.c.obj), (112 bytes).
+	Removing .debug_ranges(wm_drv_irq.c.obj), (96 bytes).
+	Removing .debug_macinfo(wm_drv_irq.c.obj), (29831 bytes).
+	Removing .debug_line(wm_drv_irq.c.obj), (1393 bytes).
+	Removing .debug_str(wm_drv_irq.c.obj), (1694 bytes).
+	Removing .comment(wm_drv_irq.c.obj), (67 bytes).
+	Removing .debug_frame(wm_drv_irq.c.obj), (304 bytes).
+	Removing .csky.attributes(wm_drv_irq.c.obj), (56 bytes).
+	Removing .text(wm_drv_uart.c.obj), (0 bytes).
+	Removing .data(wm_drv_uart.c.obj), (0 bytes).
+	Removing .bss(wm_drv_uart.c.obj), (0 bytes).
+	Removing .text.wm_drv_uart_set_baud_rate(wm_drv_uart.c.obj), (84 bytes).
+	Removing .text.wm_drv_uart_set_stop_bits(wm_drv_uart.c.obj), (52 bytes).
+	Removing .text.wm_drv_uart_set_flow_ctrl(wm_drv_uart.c.obj), (44 bytes).
+	Removing .text.wm_drv_uart_set_parity(wm_drv_uart.c.obj), (80 bytes).
+	Removing .text.wm_drv_uart_set_data_bits(wm_drv_uart.c.obj), (80 bytes).
+	Removing .text.wm_drv_uart_init(wm_drv_uart.c.obj), (380 bytes).
+	Removing .text.wm_drv_uart_deinit(wm_drv_uart.c.obj), (92 bytes).
+	Removing .rodata.wm_drv_uart_init.str1.1(wm_drv_uart.c.obj), (70 bytes).
+	Removing .data(_fixunsdfsi.o), (0 bytes).
+	Removing .bss(_fixunsdfsi.o), (0 bytes).
+	Removing .data(_udivdi3.o), (0 bytes).
+	Removing .bss(_udivdi3.o), (0 bytes).
+	Removing .data(_umoddi3.o), (0 bytes).
+	Removing .bss(_umoddi3.o), (0 bytes).
+	Removing .data(_sf_to_df.o), (0 bytes).
+	Removing .bss(_sf_to_df.o), (0 bytes).
+	Removing .data(_addsub_df.o), (0 bytes).
+	Removing .bss(_addsub_df.o), (0 bytes).
+	Removing .data(_mul_df.o), (0 bytes).
+	Removing .bss(_mul_df.o), (0 bytes).
+	Removing .data(_div_df.o), (0 bytes).
+	Removing .bss(_div_df.o), (0 bytes).
+	Removing .data(_ne_df.o), (0 bytes).
+	Removing .bss(_ne_df.o), (0 bytes).
+	Removing .data(_gt_df.o), (0 bytes).
+	Removing .bss(_gt_df.o), (0 bytes).
+	Removing .data(_ge_df.o), (0 bytes).
+	Removing .bss(_ge_df.o), (0 bytes).
+	Removing .data(_lt_df.o), (0 bytes).
+	Removing .bss(_lt_df.o), (0 bytes).
+	Removing .data(_le_df.o), (0 bytes).
+	Removing .bss(_le_df.o), (0 bytes).
+	Removing .data(_si_to_df.o), (0 bytes).
+	Removing .bss(_si_to_df.o), (0 bytes).
+	Removing .data(_df_to_si.o), (0 bytes).
+	Removing .bss(_df_to_si.o), (0 bytes).
+	Removing .data(_make_df.o), (0 bytes).
+	Removing .bss(_make_df.o), (0 bytes).
+	Removing .data(_df_to_sf.o), (0 bytes).
+	Removing .bss(_df_to_sf.o), (0 bytes).
+	Removing .text(_thenan_df.o), (0 bytes).
+	Removing .data(_thenan_df.o), (0 bytes).
+	Removing .bss(_thenan_df.o), (0 bytes).
+	Removing .data(_usi_to_df.o), (0 bytes).
+	Removing .bss(_usi_to_df.o), (0 bytes).
+	Removing .data(_muldi3.o), (0 bytes).
+	Removing .bss(_muldi3.o), (0 bytes).
+	Removing .text(_clz.o), (0 bytes).
+	Removing .data(_clz.o), (0 bytes).
+	Removing .bss(_clz.o), (0 bytes).
+	Removing .data(_unpack_sf.o), (0 bytes).
+	Removing .bss(_unpack_sf.o), (0 bytes).
+	Removing .data(_make_sf.o), (0 bytes).
+	Removing .bss(_make_sf.o), (0 bytes).
+	Removing .data(_pack_df.o), (0 bytes).
+	Removing .bss(_pack_df.o), (0 bytes).
+	Removing .data(_unpack_df.o), (0 bytes).
+	Removing .bss(_unpack_df.o), (0 bytes).
+	Removing .data(_fpcmp_parts_df.o), (0 bytes).
+	Removing .bss(_fpcmp_parts_df.o), (0 bytes).
+	Removing .data(_pack_sf.o), (0 bytes).
+	Removing .bss(_pack_sf.o), (0 bytes).
+	Removing .text(tolower.o), (14 bytes).
+	Removing .data(tolower.o), (0 bytes).
+	Removing .bss(tolower.o), (0 bytes).
+	Removing .csky.attributes(tolower.o), (50 bytes).
+	Removing .text(isspace.o), (20 bytes).
+	Removing .data(isspace.o), (0 bytes).
+	Removing .bss(isspace.o), (0 bytes).
+	Removing .csky.attributes(isspace.o), (50 bytes).
+	Removing .data(sprintf_required.o), (0 bytes).
+	Removing .bss(sprintf_required.o), (0 bytes).
+	Removing .data(putchar.o), (0 bytes).
+	Removing .bss(putchar.o), (0 bytes).
+	Removing .data(printf_required.o), (0 bytes).
+	Removing .bss(printf_required.o), (0 bytes).
+	Removing .data(puts.o), (0 bytes).
+	Removing .bss(puts.o), (0 bytes).
+	Removing .data(snprintf_required.o), (0 bytes).
+	Removing .bss(snprintf_required.o), (0 bytes).
+	Removing .data(vprintf_required.o), (0 bytes).
+	Removing .bss(vprintf_required.o), (0 bytes).
+	Removing .text(stdinit.o), (0 bytes).
+	Removing .bss(stdinit.o), (0 bytes).
+	Removing .text(fprintf_required.o), (26 bytes).
+	Removing .data(fprintf_required.o), (0 bytes).
+	Removing .bss(fprintf_required.o), (0 bytes).
+	Removing .comment(fprintf_required.o), (67 bytes).
+	Removing .csky.attributes(fprintf_required.o), (52 bytes).
+	Removing .data(fputs.o), (0 bytes).
+	Removing .bss(fputs.o), (0 bytes).
+	Removing .text(vfprintf_required.o), (40 bytes).
+	Removing .data(vfprintf_required.o), (0 bytes).
+	Removing .bss(vfprintf_required.o), (0 bytes).
+	Removing .comment(vfprintf_required.o), (67 bytes).
+	Removing .csky.attributes(vfprintf_required.o), (52 bytes).
+	Removing .data(vsnprintf_required.o), (0 bytes).
+	Removing .bss(vsnprintf_required.o), (0 bytes).
+	Removing .text(strtod.o), (612 bytes).
+	Removing .data(strtod.o), (0 bytes).
+	Removing .bss(strtod.o), (0 bytes).
+	Removing .rodata(strtod.o), (40 bytes).
+	Removing .comment(strtod.o), (67 bytes).
+	Removing .csky.attributes(strtod.o), (52 bytes).
+	Removing .text(strtof.o), (12 bytes).
+	Removing .data(strtof.o), (0 bytes).
+	Removing .bss(strtof.o), (0 bytes).
+	Removing .comment(strtof.o), (67 bytes).
+	Removing .csky.attributes(strtof.o), (52 bytes).
+	Removing .text(strcmp_fast.o), (214 bytes).
+	Removing .data(strcmp_fast.o), (0 bytes).
+	Removing .bss(strcmp_fast.o), (0 bytes).
+	Removing .csky.attributes(strcmp_fast.o), (50 bytes).
+	Removing .data(memset_fast.o), (0 bytes).
+	Removing .bss(memset_fast.o), (0 bytes).
+	Removing .data(strlen_fast.o), (0 bytes).
+	Removing .bss(strlen_fast.o), (0 bytes).
+	Removing .text(memmove_fast.o), (184 bytes).
+	Removing .data(memmove_fast.o), (0 bytes).
+	Removing .bss(memmove_fast.o), (0 bytes).
+	Removing .csky.attributes(memmove_fast.o), (50 bytes).
+	Removing .data(strcpy_fast.o), (0 bytes).
+	Removing .bss(strcpy_fast.o), (0 bytes).
+	Removing .data(strstr.o), (0 bytes).
+	Removing .bss(strstr.o), (0 bytes).
+	Removing .data(memcpy_fast.o), (0 bytes).
+	Removing .bss(memcpy_fast.o), (0 bytes).
+	Removing .text(strncpy.o), (44 bytes).
+	Removing .data(strncpy.o), (0 bytes).
+	Removing .bss(strncpy.o), (0 bytes).
+	Removing .csky.attributes(strncpy.o), (50 bytes).
+	Removing .data(memcmp_fast.o), (0 bytes).
+	Removing .bss(memcmp_fast.o), (0 bytes).
+	Removing .data(strncmp.o), (0 bytes).
+	Removing .bss(strncmp.o), (0 bytes).
+	Removing .text(memchr.o), (20 bytes).
+	Removing .data(memchr.o), (0 bytes).
+	Removing .bss(memchr.o), (0 bytes).
+	Removing .csky.attributes(memchr.o), (50 bytes).
+	Removing .text(isdigit.o), (8 bytes).
+	Removing .data(isdigit.o), (0 bytes).
+	Removing .bss(isdigit.o), (0 bytes).
+	Removing .csky.attributes(isdigit.o), (50 bytes).
+	Removing .text(minilibc_init.o), (56 bytes).
+	Removing .data(minilibc_init.o), (0 bytes).
+	Removing .bss(minilibc_init.o), (0 bytes).
+	Removing .data(critical.o), (0 bytes).
+	Removing .bss(critical.o), (0 bytes).
+	Removing .text(fwrite.o), (62 bytes).
+	Removing .data(fwrite.o), (0 bytes).
+	Removing .bss(fwrite.o), (0 bytes).
+	Removing .comment(fwrite.o), (67 bytes).
+	Removing .csky.attributes(fwrite.o), (52 bytes).
+	Removing .data(putc.o), (0 bytes).
+	Removing .bss(putc.o), (0 bytes).
+	Removing .data(vsprintf_required.o), (0 bytes).
+	Removing .bss(vsprintf_required.o), (0 bytes).
+	Removing .text(abs.o), (6 bytes).
+	Removing .data(abs.o), (0 bytes).
+	Removing .bss(abs.o), (0 bytes).
+	Removing .csky.attributes(abs.o), (50 bytes).
+	Removing .data(_eq_df.o), (0 bytes).
+	Removing .bss(_eq_df.o), (0 bytes).
+	Removing .data(__v2_printfDFHLlMOPpSSsWp.o), (0 bytes).
+	Removing .bss(__v2_printfDFHLlMOPpSSsWp.o), (0 bytes).
+	Removing .data(__dtostr.o), (0 bytes).
+	Removing .bss(__dtostr.o), (0 bytes).
+	Removing .data(__isnan.o), (0 bytes).
+	Removing .bss(__isnan.o), (0 bytes).
+	Removing .data(strchr.o), (0 bytes).
+	Removing .bss(strchr.o), (0 bytes).
+	Removing .data(strerror.o), (0 bytes).
+	Removing .bss(strerror.o), (0 bytes).
+	Removing .data(__isinf.o), (0 bytes).
+	Removing .bss(__isinf.o), (0 bytes).
+
+788 unused seciton(s) (total 424432 bytes) removed from the image.
+
+======================================================================
+
+Image Symbol Table 
+
+	Local Symbols
+
+	Symbol Name                        Value        Type   Size  Section
+	__dtostr.o                         0x00000000     df        0  *ABS*
+	__isinf.o                          0x00000000     df        0  *ABS*
+	__isnan.o                          0x00000000     df        0  *ABS*
+	__v2_printfDFHLlMOPpSSsWp.o        0x00000000     df        0  *ABS*
+	_addsub_df.o                       0x00000000     df        0  *ABS*
+	_df_to_sf.o                        0x00000000     df        0  *ABS*
+	_df_to_si.o                        0x00000000     df        0  *ABS*
+	_div_df.o                          0x00000000     df        0  *ABS*
+	_eq_df.o                           0x00000000     df        0  *ABS*
+	_fixunsdfsi.o                      0x00000000     df        0  *ABS*
+	_fpcmp_parts_df.o                  0x00000000     df        0  *ABS*
+	_ge_df.o                           0x00000000     df        0  *ABS*
+	_gt_df.o                           0x00000000     df        0  *ABS*
+	_le_df.o                           0x00000000     df        0  *ABS*
+	_lt_df.o                           0x00000000     df        0  *ABS*
+	_make_df.o                         0x00000000     df        0  *ABS*
+	_make_sf.o                         0x00000000     df        0  *ABS*
+	_mul_df.o                          0x00000000     df        0  *ABS*
+	_muldi3.o                          0x00000000     df        0  *ABS*
+	_ne_df.o                           0x00000000     df        0  *ABS*
+	_pack_df.o                         0x00000000     df        0  *ABS*
+	_pack_sf.o                         0x00000000     df        0  *ABS*
+	_sf_to_df.o                        0x00000000     df        0  *ABS*
+	_si_to_df.o                        0x00000000     df        0  *ABS*
+	_udivdi3.o                         0x00000000     df        0  *ABS*
+	_umoddi3.o                         0x00000000     df        0  *ABS*
+	_unpack_df.o                       0x00000000     df        0  *ABS*
+	_unpack_sf.o                       0x00000000     df        0  *ABS*
+	_usi_to_df.o                       0x00000000     df        0  *ABS*
+	cpu_init.c.obj                     0x00000000     df        0  *ABS*
+	cpu_task_sw.S.obj                  0x00000000     df        0  *ABS*
+	critical.o                         0x00000000     df        0  *ABS*
+	elog.c.obj                         0x00000000     df        0  *ABS*
+	elog_port.c.obj                    0x00000000     df        0  *ABS*
+	elog_utils.c.obj                   0x00000000     df        0  *ABS*
+	fputs.o                            0x00000000     df        0  *ABS*
+	isr.c.obj                          0x00000000     df        0  *ABS*
+	libc_port.c.obj                    0x00000000     df        0  *ABS*
+	list.c.obj                         0x00000000     df        0  *ABS*
+	main.c.obj                         0x00000000     df        0  *ABS*
+	memcmp_fast.o                      0x00000000     df        0  *ABS*
+	memcpy_fast.o                      0x00000000     df        0  *ABS*
+	memset_fast.o                      0x00000000     df        0  *ABS*
+	port.c.obj                         0x00000000     df        0  *ABS*
+	printf_port.c.obj                  0x00000000     df        0  *ABS*
+	printf_required.o                  0x00000000     df        0  *ABS*
+	putc.o                             0x00000000     df        0  *ABS*
+	putchar.o                          0x00000000     df        0  *ABS*
+	puts.o                             0x00000000     df        0  *ABS*
+	queue.c.obj                        0x00000000     df        0  *ABS*
+	snprintf_required.o                0x00000000     df        0  *ABS*
+	soc_init.c.obj                     0x00000000     df        0  *ABS*
+	sprintf_required.o                 0x00000000     df        0  *ABS*
+	startup.S.obj                      0x00000000     df        0  *ABS*
+	stdinit.o                          0x00000000     df        0  *ABS*
+	strchr.o                           0x00000000     df        0  *ABS*
+	strcpy_fast.o                      0x00000000     df        0  *ABS*
+	strerror.o                         0x00000000     df        0  *ABS*
+	strlen_fast.o                      0x00000000     df        0  *ABS*
+	strncmp.o                          0x00000000     df        0  *ABS*
+	strstr.o                           0x00000000     df        0  *ABS*
+	tasks.c.obj                        0x00000000     df        0  *ABS*
+	timers.c.obj                       0x00000000     df        0  *ABS*
+	trap_c.c.obj                       0x00000000     df        0  *ABS*
+	vectors.S.obj                      0x00000000     df        0  *ABS*
+	vprintf_required.o                 0x00000000     df        0  *ABS*
+	vsnprintf_required.o               0x00000000     df        0  *ABS*
+	vsprintf_required.o                0x00000000     df        0  *ABS*
+	wm_debug.c.obj                     0x00000000     df        0  *ABS*
+	wm_drv_fls.c.obj                   0x00000000     df        0  *ABS*
+	wm_drv_uart.c.obj                  0x00000000     df        0  *ABS*
+	wm_hal_fls.c.obj                   0x00000000     df        0  *ABS*
+	wm_hal_irq.c.obj                   0x00000000     df        0  *ABS*
+	wm_heap.c.obj                      0x00000000     df        0  *ABS*
+	wm_log.c.obj                       0x00000000     df        0  *ABS*
+	wm_osal.c.obj                      0x00000000     df        0  *ABS*
+	wm_partition_table.c.obj           0x00000000     df        0  *ABS*
+	wm_printf.c.obj                    0x00000000     df        0  *ABS*
+	wm_stub_drv.c.obj                  0x00000000     df        0  *ABS*
+	wm_system.c.obj                    0x00000000     df        0  *ABS*
+	$d                                 0x0800a500               0  .text
+	$t                                 0x0800a500               0  .text
+	__end.5654                         0x0800a500      O        0  .text
+	__start.5652                       0x0800a500      O        0  .text
+	_start                             0x0800a500               0  .text
+	__exit                             0x0800a564               0  .text
+	$d                                 0x0800a566               0  .text
+	$t                                 0x0800a590               0  .text
+	$d                                 0x0800a5d6               0  .text
+	$t                                 0x0800a5e0               0  .text
+	$d                                 0x0800a678               0  .text
+	$d                                 0x0800a680               0  .text
+	$t                                 0x0800a680               0  .text
+	$d                                 0x0800a6b8               0  .text
+	$t                                 0x0800a6b8               0  .text
+	$d                                 0x0800a9e6               0  .text
+	$d                                 0x0800a9ec               0  .text
+	$t                                 0x0800a9ec               0  .text
+	$d                                 0x0800ad0c               0  .text
+	$d                                 0x0800ad10               0  .text
+	$t                                 0x0800ad10               0  .text
+	_fpadd_parts                       0x0800ad3c      F      706  .text
+	$d                                 0x0800ad3c               0  .text
+	$t                                 0x0800ad3c               0  .text
+	$d                                 0x0800b068               0  .text
+	$d                                 0x0800b06c               0  .text
+	$t                                 0x0800b06c               0  .text
+	$d                                 0x0800b268               0  .text
+	$d                                 0x0800b26c               0  .text
+	$t                                 0x0800b26c               0  .text
+	$d                                 0x0800b37e               0  .text
+	$d                                 0x0800b384               0  .text
+	$t                                 0x0800b384               0  .text
+	$d                                 0x0800b3bc               0  .text
+	$t                                 0x0800b3bc               0  .text
+	$d                                 0x0800b3fc               0  .text
+	$t                                 0x0800b3fc               0  .text
+	$d                                 0x0800b43c               0  .text
+	$t                                 0x0800b43c               0  .text
+	$d                                 0x0800b474               0  .text
+	$t                                 0x0800b474               0  .text
+	$d                                 0x0800b4ac               0  .text
+	$t                                 0x0800b4ac               0  .text
+	$d                                 0x0800b514               0  .text
+	$t                                 0x0800b514               0  .text
+	$d                                 0x0800b584               0  .text
+	$t                                 0x0800b584               0  .text
+	$d                                 0x0800b5b4               0  .text
+	$t                                 0x0800b5b4               0  .text
+	$d                                 0x0800b5e8               0  .text
+	$t                                 0x0800b5e8               0  .text
+	$d                                 0x0800b640               0  .text
+	$t                                 0x0800b640               0  .text
+	$d                                 0x0800b68c               0  .text
+	$t                                 0x0800b68c               0  .text
+	$d                                 0x0800b704               0  .text
+	$d                                 0x0800b708               0  .text
+	$t                                 0x0800b708               0  .text
+	$d                                 0x0800b720               0  .text
+	$t                                 0x0800b720               0  .text
+	$d                                 0x0800b8b0               0  .text
+	$t                                 0x0800b8b0               0  .text
+	$d                                 0x0800b994               0  .text
+	$t                                 0x0800b994               0  .text
+	$d                                 0x0800ba58               0  .text
+	$t                                 0x0800ba58               0  .text
+	$d                                 0x0800bb18               0  .text
+	$t                                 0x0800bb18               0  .text
+	$d                                 0x0800bb34               0  .text
+	$t                                 0x0800bb34               0  .text
+	$d                                 0x0800bb40               0  .text
+	$d                                 0x0800bb44               0  .text
+	$t                                 0x0800bb44               0  .text
+	$d                                 0x0800bb60               0  .text
+	$t                                 0x0800bb60               0  .text
+	$d                                 0x0800bb74               0  .text
+	$d                                 0x0800bb78               0  .text
+	$t                                 0x0800bb78               0  .text
+	$d                                 0x0800bb90               0  .text
+	$t                                 0x0800bb90               0  .text
+	$d                                 0x0800bbda               0  .text
+	$d                                 0x0800bbe4               0  .text
+	$t                                 0x0800bbe4               0  .text
+	swrite                             0x0800bc30      F       64  .text
+	$d                                 0x0800bc30               0  .text
+	$t                                 0x0800bc30               0  .text
+	$d                                 0x0800bcd6               0  .text
+	$d                                 0x0800bcdc               0  .text
+	$t                                 0x0800bcdc               0  .text
+	$d                                 0x0800bd7c               0  .text
+	$t                                 0x0800bd7c               0  .text
+	$d                                 0x0800bdbc               0  .text
+	$t                                 0x0800bdbc               0  .text
+	$d                                 0x0800be88               0  .text
+	$t                                 0x0800be88               0  .text
+	$d                                 0x0800beb4               0  .text
+	$t                                 0x0800beb4               0  .text
+	$d                                 0x0800bf34               0  .text
+	$t                                 0x0800bf34               0  .text
+	$d                                 0x0800c080               0  .text
+	$t                                 0x0800c080               0  .text
+	$d                                 0x0800c0a4               0  .text
+	$t                                 0x0800c0a4               0  .text
+	$d                                 0x0800c0b4               0  .text
+	$t                                 0x0800c0b4               0  .text
+	$d                                 0x0800c0bc               0  .text
+	$t                                 0x0800c0bc               0  .text
+	$d                                 0x0800c0cc               0  .text
+	$t                                 0x0800c0cc               0  .text
+	PAD.1851                           0x0800c104      F       60  .text
+	$d                                 0x0800c104               0  .text
+	$t                                 0x0800c104               0  .text
+	$d                                 0x0800c43e               0  .text
+	$t                                 0x0800c44c               0  .text
+	$d                                 0x0800c7ec               0  .text
+	$t                                 0x0800c7f8               0  .text
+	$d                                 0x0800c860               0  .text
+	$t                                 0x0800c860               0  .text
+	$d                                 0x0800cc3a               0  .text
+	$t                                 0x0800cc58               0  .text
+	$d                                 0x0800cc84               0  .text
+	$t                                 0x0800cc84               0  .text
+	$d                                 0x0800ccb0               0  .text
+	$t                                 0x0800ccb0               0  .text
+	$d                                 0x0800ccc4               0  .text
+	$t                                 0x0800ccc4               0  .text
+	$d                                 0x0800ccd6               0  .text
+	$d                                 0x0800cce0               0  .text
+	$t                                 0x0800cce0               0  .text
+	vTimerCallback                     0x0800cd0c      F       10  .text
+	$d                                 0x0800cd0c               0  .text
+	$t                                 0x0800cd0c               0  .text
+	$d                                 0x0800cd16               0  .text
+	test_task                          0x0800cd1c      F       18  .text
+	$d                                 0x0800cd1c               0  .text
+	$t                                 0x0800cd1c               0  .text
+	$d                                 0x0800cd2e               0  .text
+	$d                                 0x0800cd34               0  .text
+	$t                                 0x0800cd34               0  .text
+	$d                                 0x0800cd88               0  .text
+	$d                                 0x0800cd9c               0  .text
+	$t                                 0x0800cd9c               0  .text
+	$d                                 0x0800cdec               0  .text
+	$d                                 0x0800cdf0               0  .text
+	$t                                 0x0800cdf0               0  .text
+	$d                                 0x0800ce20               0  .text
+	$d                                 0x0800ce24               0  .text
+	$t                                 0x0800ce24               0  .text
+	$d                                 0x0800ce58               0  .text
+	$t                                 0x0800ce58               0  .text
+	$d                                 0x0800ce88               0  .text
+	$t                                 0x0800ce88               0  .text
+	$d                                 0x0800ceb8               0  .text
+	$t                                 0x0800ceb8               0  .text
+	$d                                 0x0800cf0a               0  .text
+	$d                                 0x0800cf18               0  .text
+	$t                                 0x0800cf18               0  .text
+	$d                                 0x0800cf24               0  .text
+	$t                                 0x0800cf24               0  .text
+	$d                                 0x0800cf38               0  .text
+	$d                                 0x0800cf40               0  .text
+	$t                                 0x0800cf40               0  .text
+	$d                                 0x0800cf76               0  .text
+	$t                                 0x0800cf84               0  .text
+	$d                                 0x0800d022               0  .text
+	CK_IN_INTRP                        0x0800d070      F       24  .text
+	$d                                 0x0800d070               0  .text
+	$t                                 0x0800d070               0  .text
+	$d                                 0x0800d088               0  .text
+	$t                                 0x0800d088               0  .text
+	$d                                 0x0800d0bc               0  .text
+	$t                                 0x0800d0bc               0  .text
+	$d                                 0x0800d0c8               0  .text
+	$t                                 0x0800d0c8               0  .text
+	$d                                 0x0800d0de               0  .text
+	$d                                 0x0800d0e4               0  .text
+	$t                                 0x0800d0e4               0  .text
+	$d                                 0x0800d0fc               0  .text
+	$t                                 0x0800d0fc               0  .text
+	$d                                 0x0800d108               0  .text
+	$t                                 0x0800d108               0  .text
+	$d                                 0x0800d158               0  .text
+	$t                                 0x0800d158               0  .text
+	$d                                 0x0800d170               0  .text
+	$t                                 0x0800d170               0  .text
+	$d                                 0x0800d1c0               0  .text
+	$t                                 0x0800d1c0               0  .text
+	$d                                 0x0800d210               0  .text
+	$t                                 0x0800d210               0  .text
+	$d                                 0x0800d218               0  .text
+	$t                                 0x0800d218               0  .text
+	$d                                 0x0800d224               0  .text
+	$t                                 0x0800d224               0  .text
+	$d                                 0x0800d22c               0  .text
+	$t                                 0x0800d22c               0  .text
+	$d                                 0x0800d234               0  .text
+	$t                                 0x0800d234               0  .text
+	$d                                 0x0800d240               0  .text
+	$d                                 0x0800d244               0  .text
+	$t                                 0x0800d244               0  .text
+	$d                                 0x0800d24c               0  .text
+	$t                                 0x0800d24c               0  .text
+	$d                                 0x0800d250               0  .text
+	$t                                 0x0800d250               0  .text
+	_out_buffer                        0x0800d260      F       10  .text
+	$d                                 0x0800d260               0  .text
+	$t                                 0x0800d260               0  .text
+	_out_null                          0x0800d26c      F        2  .text
+	$d                                 0x0800d26c               0  .text
+	$t                                 0x0800d26c               0  .text
+	_out_rev                           0x0800d270      F      124  .text
+	$d                                 0x0800d270               0  .text
+	$t                                 0x0800d270               0  .text
+	_ntoa_format                       0x0800d2ec      F      346  .text
+	$d                                 0x0800d2ec               0  .text
+	$t                                 0x0800d2ec               0  .text
+	_ntoa_long                         0x0800d448      F      180  .text
+	$d                                 0x0800d448               0  .text
+	$t                                 0x0800d448               0  .text
+	_ntoa_long_long                    0x0800d4fc      F      220  .text
+	$d                                 0x0800d4fc               0  .text
+	$t                                 0x0800d4fc               0  .text
+	_out_uart                          0x0800d5d8      F        8  .text
+	$d                                 0x0800d5d8               0  .text
+	$t                                 0x0800d5d8               0  .text
+	_ftoa                              0x0800d5e0      F      942  .text
+	$d                                 0x0800d5e0               0  .text
+	$t                                 0x0800d5e0               0  .text
+	$d                                 0x0800d936               0  .text
+	$t                                 0x0800d954               0  .text
+	_etoa                              0x0800d990      F      954  .text
+	$d                                 0x0800d990               0  .text
+	$t                                 0x0800d990               0  .text
+	$d                                 0x0800dd4a               0  .text
+	_vsnprintf                         0x0800dd88      F     2348  .text
+	$d                                 0x0800dd88               0  .text
+	$t                                 0x0800dd88               0  .text
+	$d                                 0x0800e122               0  .text
+	$t                                 0x0800e12c               0  .text
+	$d                                 0x0800e6b4               0  .text
+	$t                                 0x0800e6b4               0  .text
+	$d                                 0x0800e6ca               0  .text
+	$d                                 0x0800e6d0               0  .text
+	$t                                 0x0800e6d0               0  .text
+	$d                                 0x0800e6fe               0  .text
+	wm_start_task                      0x0800e704      F      198  .text
+	$d                                 0x0800e704               0  .text
+	$t                                 0x0800e704               0  .text
+	$d                                 0x0800e7ca               0  .text
+	$d                                 0x0800e7f0               0  .text
+	$t                                 0x0800e7f0               0  .text
+	$d                                 0x0800e812               0  .text
+	$d                                 0x0800e81c               0  .text
+	$t                                 0x0800e81c               0  .text
+	$d                                 0x0800e83c               0  .text
+	$t                                 0x0800e83c               0  .text
+	$d                                 0x0800e8a8               0  .text
+	$d                                 0x0800e8b4               0  .text
+	$t                                 0x0800e8b4               0  .text
+	$d                                 0x0800e986               0  .text
+	tls_crypto_sem_lock                0x0800e99c      F       20  .text
+	$d                                 0x0800e99c               0  .text
+	$t                                 0x0800e99c               0  .text
+	$d                                 0x0800e9b0               0  .text
+	tls_crypto_sem_unlock              0x0800e9b4      F       16  .text
+	$d                                 0x0800e9b4               0  .text
+	$t                                 0x0800e9b4               0  .text
+	$d                                 0x0800e9c4               0  .text
+	hd_md5_compress                    0x0800e9c8      F      114  .text
+	$d                                 0x0800e9c8               0  .text
+	$t                                 0x0800e9c8               0  .text
+	$d                                 0x0800ea3a               0  .text
+	$d                                 0x0800ea40               0  .text
+	$t                                 0x0800ea40               0  .text
+	$d                                 0x0800ea5a               0  .text
+	$d                                 0x0800ea60               0  .text
+	$t                                 0x0800ea60               0  .text
+	$d                                 0x0800ea76               0  .text
+	$d                                 0x0800ea7c               0  .text
+	$t                                 0x0800ea7c               0  .text
+	$d                                 0x0800eabe               0  .text
+	$d                                 0x0800ead4               0  .text
+	$t                                 0x0800ead4               0  .text
+	$d                                 0x0800eb30               0  .text
+	$t                                 0x0800eb30               0  .text
+	$d                                 0x0800ec02               0  .text
+	$d                                 0x0800ec08               0  .text
+	$t                                 0x0800ec08               0  .text
+	$d                                 0x0800ec30               0  .text
+	$t                                 0x0800ec30               0  .text
+	$d                                 0x0800ec46               0  .text
+	$d                                 0x0800ec4c               0  .text
+	$t                                 0x0800ec4c               0  .text
+	$d                                 0x0800ecaa               0  .text
+	$d                                 0x0800ecb4               0  .text
+	$t                                 0x0800ecb4               0  .text
+	$d                                 0x0800ecd2               0  .text
+	$d                                 0x0800ecd8               0  .text
+	$t                                 0x0800ecd8               0  .text
+	$d                                 0x0800ecea               0  .text
+	$d                                 0x0800ecf0               0  .text
+	$t                                 0x0800ecf0               0  .text
+	$d                                 0x0800ed0e               0  .text
+	$d                                 0x0800ed14               0  .text
+	$t                                 0x0800ed14               0  .text
+	$d                                 0x0800ed32               0  .text
+	$d                                 0x0800ed38               0  .text
+	$t                                 0x0800ed38               0  .text
+	$d                                 0x0800eff4               0  .text
+	$d                                 0x0800f03c               0  .text
+	$t                                 0x0800f03c               0  .text
+	$d                                 0x0800f08c               0  .text
+	$d                                 0x0800f0a8               0  .text
+	$t                                 0x0800f0a8               0  .text
+	$d                                 0x0800f0f2               0  .text
+	$d                                 0x0800f110               0  .text
+	$t                                 0x0800f110               0  .text
+	$d                                 0x0800f198               0  .text
+	get_fmt_enabled                    0x0800f1b4      F       90  .text
+	$d                                 0x0800f1b4               0  .text
+	$t                                 0x0800f1b4               0  .text
+	$d                                 0x0800f20e               0  .text
+	$d                                 0x0800f22c               0  .text
+	$t                                 0x0800f22c               0  .text
+	$d                                 0x0800f258               0  .text
+	$d                                 0x0800f25c               0  .text
+	$t                                 0x0800f25c               0  .text
+	$d                                 0x0800f2b6               0  .text
+	$d                                 0x0800f2bc               0  .text
+	$t                                 0x0800f2bc               0  .text
+	$d                                 0x0800f354               0  .text
+	$d                                 0x0800f370               0  .text
+	$t                                 0x0800f370               0  .text
+	$d                                 0x0800f388               0  .text
+	$d                                 0x0800f390               0  .text
+	$t                                 0x0800f390               0  .text
+	$d                                 0x0800f39c               0  .text
+	$d                                 0x0800f3a0               0  .text
+	$t                                 0x0800f3a0               0  .text
+	$d                                 0x0800f3b0               0  .text
+	$d                                 0x0800f3b4               0  .text
+	$t                                 0x0800f3b4               0  .text
+	$d                                 0x0800f3c0               0  .text
+	$d                                 0x0800f3c4               0  .text
+	$t                                 0x0800f3c4               0  .text
+	$d                                 0x0800f3e4               0  .text
+	$d                                 0x0800f3ec               0  .text
+	$t                                 0x0800f3ec               0  .text
+	$d                                 0x0800f3f0               0  .text
+	$d                                 0x0800f3f4               0  .text
+	$t                                 0x0800f3f4               0  .text
+	$d                                 0x0800f3fc               0  .text
+	$t                                 0x0800f3fc               0  .text
+	heap_insert_block_into_free_list   0x0800f44c      F       68  .text
+	$d                                 0x0800f44c               0  .text
+	$t                                 0x0800f44c               0  .text
+	$d                                 0x0800f490               0  .text
+	$t                                 0x0800f490               0  .text
+	$d                                 0x0800f496               0  .text
+	$d                                 0x0800f49c               0  .text
+	$t                                 0x0800f49c               0  .text
+	$d                                 0x0800f61e               0  .text
+	$d                                 0x0800f638               0  .text
+	$t                                 0x0800f638               0  .text
+	$d                                 0x0800f6ec               0  .text
+	$d                                 0x0800f6fc               0  .text
+	$t                                 0x0800f6fc               0  .text
+	$d                                 0x0800f7c8               0  .text
+	wm_ll_fls_read_by_cmd.constprop.2  0x0800f7dc      F      194  .text
+	$d                                 0x0800f7dc               0  .text
+	$t                                 0x0800f7dc               0  .text
+	$d                                 0x0800f89e               0  .text
+	$d                                 0x0800f8ac               0  .text
+	$t                                 0x0800f8ac               0  .text
+	$d                                 0x0800fa38               0  .text
+	$d                                 0x0800fa50               0  .text
+	$t                                 0x0800fa50               0  .text
+	$d                                 0x0800fa8e               0  .text
+	$d                                 0x0800faa4               0  .text
+	$t                                 0x0800faa4               0  .text
+	$d                                 0x0800fc02               0  .text
+	wm_hal_irq_unexpected_handler      0x0800fc20      F       12  .text
+	$d                                 0x0800fc20               0  .text
+	$t                                 0x0800fc20               0  .text
+	$d                                 0x0800fc2c               0  .text
+	$d                                 0x0800fc30               0  .text
+	$t                                 0x0800fc30               0  .text
+	$d                                 0x0800fc50               0  .text
+	$d                                 0x0800fc58               0  .text
+	$t                                 0x0800fc58               0  .text
+	$d                                 0x0800fc8c               0  .text
+	$d                                 0x0800fca0               0  .text
+	$t                                 0x0800fca0               0  .text
+	$d                                 0x0800fcba               0  .text
+	$d                                 0x0800fcc0               0  .text
+	$t                                 0x0800fcc0               0  .text
+	$d                                 0x0800fcd8               0  .text
+	$d                                 0x0800fcdc               0  .text
+	$t                                 0x0800fcdc               0  .text
+	$d                                 0x0800fce2               0  .text
+	$d                                 0x0800fce8               0  .text
+	$t                                 0x0800fce8               0  .text
+	$d                                 0x0800fcf6               0  .text
+	$d                                 0x0800fcfc               0  .text
+	$t                                 0x0800fcfc               0  .text
+	$d                                 0x0800fd80               0  .text
+	$d                                 0x0800fd8c               0  .text
+	$t                                 0x0800fd8c               0  .text
+	$d                                 0x0800fee6               0  .text
+	$d                                 0x0800ff14               0  .text
+	$t                                 0x0800ff14               0  .text
+	$d                                 0x0800ff28               0  .text
+	$t                                 0x0800ff28               0  .text
+	$d                                 0x0800ff30               0  .text
+	$t                                 0x0800ff30               0  .text
+	$d                                 0x0800ff48               0  .text
+	$t                                 0x0800ff48               0  .text
+	$d                                 0x0800ff7c               0  .text
+	$t                                 0x0800ff7c               0  .text
+	prvIsQueueEmpty                    0x0800ffa0      F       20  .text
+	$d                                 0x0800ffa0               0  .text
+	$t                                 0x0800ffa0               0  .text
+	prvCopyDataToQueue                 0x0800ffb4      F      112  .text
+	$d                                 0x0800ffb4               0  .text
+	$t                                 0x0800ffb4               0  .text
+	prvCopyDataFromQueue               0x08010024      F       38  .text
+	$d                                 0x08010024               0  .text
+	$t                                 0x08010024               0  .text
+	prvUnlockQueue                     0x0801004c      F      118  .text
+	$d                                 0x0801004c               0  .text
+	$t                                 0x0801004c               0  .text
+	$d                                 0x080100c4               0  .text
+	$t                                 0x080100c4               0  .text
+	$d                                 0x08010144               0  .text
+	$d                                 0x0801014c               0  .text
+	$t                                 0x0801014c               0  .text
+	$d                                 0x080101f6               0  .text
+	$d                                 0x08010200               0  .text
+	$t                                 0x08010200               0  .text
+	$d                                 0x08010278               0  .text
+	$d                                 0x08010280               0  .text
+	$t                                 0x08010280               0  .text
+	$d                                 0x080102c0               0  .text
+	$d                                 0x080102c8               0  .text
+	$t                                 0x080102c8               0  .text
+	$d                                 0x0801042c               0  .text
+	prvInitialiseMutex                 0x08010434      F       24  .text
+	$d                                 0x08010434               0  .text
+	$t                                 0x08010434               0  .text
+	$d                                 0x0801044c               0  .text
+	$t                                 0x0801044c               0  .text
+	$d                                 0x08010464               0  .text
+	$t                                 0x08010464               0  .text
+	$d                                 0x0801052c               0  .text
+	$d                                 0x08010534               0  .text
+	$t                                 0x08010534               0  .text
+	$d                                 0x080105ec               0  .text
+	$d                                 0x080105f4               0  .text
+	$t                                 0x080105f4               0  .text
+	$d                                 0x08010736               0  .text
+	$d                                 0x08010740               0  .text
+	$t                                 0x08010740               0  .text
+	$d                                 0x080108ce               0  .text
+	$d                                 0x080108d8               0  .text
+	$t                                 0x080108d8               0  .text
+	$d                                 0x08010982               0  .text
+	$d                                 0x0801098c               0  .text
+	$t                                 0x0801098c               0  .text
+	$d                                 0x080109b2               0  .text
+	$d                                 0x080109bc               0  .text
+	$t                                 0x080109bc               0  .text
+	prvAddNewTaskToReadyList           0x08010a08      F      184  .text
+	$d                                 0x08010a08               0  .text
+	$t                                 0x08010a08               0  .text
+	$d                                 0x08010ac0               0  .text
+	prvResetNextTaskUnblockTime        0x08010af4      F       28  .text
+	$d                                 0x08010af4               0  .text
+	$t                                 0x08010af4               0  .text
+	$d                                 0x08010b10               0  .text
+	prvInitialiseNewTask.isra.2        0x08010b18      F      176  .text
+	$d                                 0x08010b18               0  .text
+	$t                                 0x08010b18               0  .text
+	prvDeleteTCB                       0x08010bc8      F       68  .text
+	$d                                 0x08010bc8               0  .text
+	$t                                 0x08010bc8               0  .text
+	$d                                 0x08010c0c               0  .text
+	prvIdleTask                        0x08010c14      F       74  .text
+	$d                                 0x08010c14               0  .text
+	$t                                 0x08010c14               0  .text
+	$d                                 0x08010c5e               0  .text
+	prvAddCurrentTaskToDelayedList     0x08010c70      F       94  .text
+	$d                                 0x08010c70               0  .text
+	$t                                 0x08010c70               0  .text
+	$d                                 0x08010cce               0  .text
+	$d                                 0x08010ce8               0  .text
+	$t                                 0x08010ce8               0  .text
+	$d                                 0x08010d70               0  .text
+	$d                                 0x08010d78               0  .text
+	$t                                 0x08010d78               0  .text
+	$d                                 0x08010de6               0  .text
+	$d                                 0x08010dec               0  .text
+	$t                                 0x08010dec               0  .text
+	$d                                 0x08010e7a               0  .text
+	$d                                 0x08010ea0               0  .text
+	$t                                 0x08010ea0               0  .text
+	$d                                 0x08010f0a               0  .text
+	$d                                 0x08010f28               0  .text
+	$t                                 0x08010f28               0  .text
+	$d                                 0x08010f32               0  .text
+	$d                                 0x08010f38               0  .text
+	$t                                 0x08010f38               0  .text
+	$d                                 0x08010f3e               0  .text
+	$d                                 0x08010f44               0  .text
+	$t                                 0x08010f44               0  .text
+	$d                                 0x08010f4a               0  .text
+	$d                                 0x08010f50               0  .text
+	$t                                 0x08010f50               0  .text
+	$d                                 0x08010f74               0  .text
+	$d                                 0x08010f80               0  .text
+	$t                                 0x08010f80               0  .text
+	$d                                 0x0801107e               0  .text
+	$d                                 0x080110b4               0  .text
+	$t                                 0x080110b4               0  .text
+	$d                                 0x08011184               0  .text
+	$d                                 0x080111ac               0  .text
+	$t                                 0x080111ac               0  .text
+	$d                                 0x080111f2               0  .text
+	$d                                 0x08011200               0  .text
+	$t                                 0x08011200               0  .text
+	$d                                 0x08011294               0  .text
+	$d                                 0x080112b0               0  .text
+	$t                                 0x080112b0               0  .text
+	$d                                 0x080112de               0  .text
+	$d                                 0x080112ec               0  .text
+	$t                                 0x080112ec               0  .text
+	$d                                 0x08011324               0  .text
+	$d                                 0x08011330               0  .text
+	$t                                 0x08011330               0  .text
+	$d                                 0x0801139e               0  .text
+	$d                                 0x080113c0               0  .text
+	$t                                 0x080113c0               0  .text
+	$d                                 0x080113ce               0  .text
+	$d                                 0x080113d8               0  .text
+	$t                                 0x080113d8               0  .text
+	$d                                 0x08011456               0  .text
+	$d                                 0x08011468               0  .text
+	$t                                 0x08011468               0  .text
+	$d                                 0x08011470               0  .text
+	$d                                 0x08011474               0  .text
+	$t                                 0x08011474               0  .text
+	$d                                 0x0801148c               0  .text
+	$d                                 0x08011494               0  .text
+	$t                                 0x08011494               0  .text
+	$d                                 0x0801150c               0  .text
+	$d                                 0x08011518               0  .text
+	$t                                 0x08011518               0  .text
+	$d                                 0x08011594               0  .text
+	$d                                 0x080115a8               0  .text
+	$t                                 0x080115a8               0  .text
+	$d                                 0x08011636               0  .text
+	$d                                 0x0801164c               0  .text
+	$t                                 0x0801164c               0  .text
+	$d                                 0x08011660               0  .text
+	prvCheckForValidListAndQueue       0x08011664      F       64  .text
+	$d                                 0x08011664               0  .text
+	$t                                 0x08011664               0  .text
+	$d                                 0x080116a4               0  .text
+	prvInsertTimerInActiveList         0x080116c0      F       50  .text
+	$d                                 0x080116c0               0  .text
+	$t                                 0x080116c0               0  .text
+	$d                                 0x080116f2               0  .text
+	prvInitialiseNewTimer.part.1       0x080116fc      F       20  .text
+	$d                                 0x080116fc               0  .text
+	$t                                 0x080116fc               0  .text
+	$d                                 0x08011710               0  .text
+	$d                                 0x08011718               0  .text
+	$t                                 0x08011718               0  .text
+	$d                                 0x08011770               0  .text
+	$d                                 0x08011788               0  .text
+	$t                                 0x08011788               0  .text
+	$d                                 0x080117e0               0  .text
+	$d                                 0x080117e4               0  .text
+	$t                                 0x080117e4               0  .text
+	$d                                 0x08011844               0  .text
+	prvSwitchTimerLists                0x08011850      F      122  .text
+	$d                                 0x08011850               0  .text
+	$t                                 0x08011850               0  .text
+	$d                                 0x080118ca               0  .text
+	prvTimerTask                       0x080118dc      F      528  .text
+	$d                                 0x080118dc               0  .text
+	$t                                 0x080118dc               0  .text
+	$d                                 0x080119f2               0  .text
+	$t                                 0x08011a0c               0  .text
+	$d                                 0x08011aec               0  .text
+	$d                                 0x08011af8               0  .text
+	$t                                 0x08011af8               0  .text
+	$d                                 0x08011b14               0  .text
+	$t                                 0x08011b14               0  .text
+	$d                                 0x08011c7e               0  .text
+	$d                                 0x08011cf8               0  .text
+	$t                                 0x08011cf8               0  .text
+	$d                                 0x08011d08               0  .text
+	$d                                 0x08011d0c               0  .text
+	$t                                 0x08011d0c               0  .text
+	$d                                 0x08011d1a               0  .text
+	$d                                 0x08011d20               0  .text
+	$t                                 0x08011d20               0  .text
+	$d                                 0x08011d28               0  .text
+	$t                                 0x08011d28               0  .text
+	$d                                 0x08011d4a               0  .text
+	$d                                 0x08011d50               0  .text
+	$t                                 0x08011d50               0  .text
+	$d                                 0x08011d60               0  .text
+	$d                                 0x08011d68               0  .text
+	$t                                 0x08011d68               0  .text
+	$d                                 0x08011d78               0  .text
+	$d                                 0x08011d80               0  .text
+	$t                                 0x08011d80               0  .text
+	$d                                 0x08011d8e               0  .text
+	$d                                 0x08011d94               0  .text
+	$t                                 0x08011d94               0  .text
+	$d                                 0x08011d9c               0  .text
+	$t                                 0x08011d9c               0  .text
+	$d                                 0x08011da0               0  .text
+	$t                                 0x08011da0               0  .text
+	$d                                 0x08011db0               0  .text
+	$t                                 0x08011db0               0  .text
+	$d                                 0x08011db8               0  .text
+	$t                                 0x08011db8               0  .text
+	$d                                 0x08011e04               0  .text
+	$d                                 0x08011e18               0  .text
+	$t                                 0x08011e18               0  .text
+	$d                                 0x08011e58               0  .text
+	$t                                 0x08011e58               0  .text
+	$d                                 0x08011e9a               0  .text
+	$d                                 0x08011eb0               0  .text
+	$t                                 0x08011eb0               0  .text
+	$d                                 0x08011ed8               0  .text
+	$d                                 0x08011ee0               0  .text
+	$t                                 0x08011ee0               0  .text
+	$d                                 0x08011f0c               0  .text
+	$d                                 0x08011f10               0  .text
+	$t                                 0x08011f10               0  .text
+	$d                                 0x08011f3c               0  .text
+	$d                                 0x08011f40               0  .text
+	$t                                 0x08011f40               0  .text
+	$d                                 0x08011f62               0  .text
+	$d                                 0x08011f68               0  .text
+	$t                                 0x08011f68               0  .text
+	blanks.1847                        0x080120a4      O       16  .rodata
+	zeroes.1848                        0x080120b4      O       16  .rodata
+	CSWTCH.1                           0x080120c4      O      576  .rodata
+	pow10.4276                         0x08012534      O       80  .rodata
+	__FUNCTION__.5648                  0x08012584      O       14  .rodata
+	__FUNCTION__.4016                  0x08012613      O       13  .rodata
+	__FUNCTION__.4028                  0x08012620      O       20  .rodata
+	__FUNCTION__.4069                  0x08012634      O       24  .rodata
+	__FUNCTION__.4103                  0x0801264c      O       12  .rodata
+	__FUNCTION__.4112                  0x08012658      O       16  .rodata
+	level_output_info                  0x08012718      O       24  .rodata
+	__FUNCTION__.3791                  0x08012742      O       12  .rodata
+	__FUNCTION__.5644                  0x0801281c      O       16  .rodata
+	__FUNCTION__.5701                  0x0801282c      O       16  .rodata
+	__FUNCTION__.5706                  0x0801283c      O       16  .rodata
+	__FUNCTION__.5553                  0x0801299c      O       24  .rodata
+	__FUNCTION__.5651                  0x08012bbb      O       16  .rodata
+	__FUNCTION__.5681                  0x08012bcb      O       16  .rodata
+	__stderr                           0x20000104      O       28  .data
+	__stdout                           0x20000124      O       28  .data
+	__stdin                            0x20000144      O       28  .data
+	uxCriticalNesting                  0x200001e4      O        4  .data
+	uart_contexts                      0x200001e8      O       84  .data
+	printf_port                        0x20001548      O        1  .bss
+	elog                               0x2000154c      O      248  .bss
+	log_buf                            0x20001644      O     1024  .bss
+	elog_lock                          0x20001a44      O        4  .bss
+	elog_timestr.5626                  0x20001a48      O       16  .bss
+	heap_used_block_list               0x20001a58      O       24  .bss
+	wm_heaps                           0x20001a70      O       20  .bss
+	wm_hal_fls_dev                     0x20001a84      O        4  .bss
+	g_partition_table_addr             0x20001a88      O        4  .bss
+	g_partition_table_count            0x20001a8c      O        4  .bss
+	g_partition_table_verified         0x20001a90      O        1  .bss
+	pxDelayedTaskList                  0x20001a98      O        4  .bss
+	pxOverflowDelayedTaskList          0x20001a9c      O        4  .bss
+	pxReadyTasksLists                  0x20001aa0      O      320  .bss
+	uxCurrentNumberOfTasks             0x20001be0      O        4  .bss
+	uxDeletedTasksWaitingCleanUp       0x20001be4      O        4  .bss
+	uxSchedulerSuspended               0x20001be8      O        4  .bss
+	uxTaskNumber                       0x20001bec      O        4  .bss
+	uxTopReadyPriority                 0x20001bf0      O        4  .bss
+	xDelayedTaskList1                  0x20001bf4      O       20  .bss
+	xDelayedTaskList2                  0x20001c08      O       20  .bss
+	xNextTaskUnblockTime               0x20001c1c      O        4  .bss
+	xNumOfOverflows                    0x20001c20      O        4  .bss
+	xPendedTicks                       0x20001c24      O        4  .bss
+	xPendingReadyList                  0x20001c28      O       20  .bss
+	xSchedulerRunning                  0x20001c3c      O        4  .bss
+	xSuspendedTaskList                 0x20001c40      O       20  .bss
+	xTasksWaitingTermination           0x20001c54      O       20  .bss
+	xTickCount                         0x20001c68      O        4  .bss
+	xYieldPending                      0x20001c6c      O        4  .bss
+	pxCurrentTimerList                 0x20001c70      O        4  .bss
+	pxOverflowTimerList                0x20001c74      O        4  .bss
+	ucStaticTimerQueueStorage.5571     0x20001c78      O     2048  .bss
+	xActiveTimerList1                  0x20002478      O       20  .bss
+	xActiveTimerList2                  0x2000248c      O       20  .bss
+	xLastTime.5520                     0x200024a0      O        4  .bss
+	xStaticTimerQueue.5570             0x200024a4      O       80  .bss
+	xTimerQueue                        0x200024f4      O        4  .bss
+	xTimerTaskHandle                   0x200024f8      O        4  .bss
+	uxIdleTaskStack.5439               0x200024fc      O     1024  .bss
+	uxTimerTaskStack.5446              0x200028fc      O     2048  .bss
+	xIdleTaskTCB.5438                  0x200030fc      O      108  .bss
+	xTimerTaskTCB.5445                 0x20003168      O      108  .bss
+	g_drv_fls_lock                     0x200031d4      O        4  .bss
+
+	Global Symbols
+
+	Symbol Name                        Value        Type   Size  Section
+	__Vectors                          0x0800a400      O      256  .text
+	reset_handler                      0x0800a500      F      100  .text
+	__stext                            0x0800a500               0  .text
+	trap                               0x0800a590      F        0  .text
+	ADC_IRQHandler                     0x0800a5d4    w F        2  .text
+	BLE_IRQHandler                     0x0800a5d4    w F        2  .text
+	BT_IRQHandler                      0x0800a5d4    w F        2  .text
+	CORET_IRQHandler                   0x0800a5d4    w F        2  .text
+	DMA_BRUST_IRQHandler               0x0800a5d4    w F        2  .text
+	DMA_Channel0_IRQHandler            0x0800a5d4    w F        2  .text
+	DMA_Channel1_IRQHandler            0x0800a5d4    w F        2  .text
+	DMA_Channel2_IRQHandler            0x0800a5d4    w F        2  .text
+	DMA_Channel3_IRQHandler            0x0800a5d4    w F        2  .text
+	DMA_Channel4_7_IRQHandler          0x0800a5d4    w F        2  .text
+	FLASH_IRQHandler                   0x0800a5d4    w F        2  .text
+	GPIOA_IRQHandler                   0x0800a5d4    w F        2  .text
+	GPIOB_IRQHandler                   0x0800a5d4    w F        2  .text
+	GPSEC_IRQHandler                   0x0800a5d4    w F        2  .text
+	I2C_IRQHandler                     0x0800a5d4    w F        2  .text
+	I2S_IRQHandler                     0x0800a5d4    w F        2  .text
+	MAC_IRQHandler                     0x0800a5d4    w F        2  .text
+	PMU_IRQHandler                     0x0800a5d4    w F        2  .text
+	PWM_IRQHandler                     0x0800a5d4    w F        2  .text
+	RF_Cfg_IRQHandler                  0x0800a5d4    w F        2  .text
+	RSA_IRQHandler                     0x0800a5d4    w F        2  .text
+	SDIO_HOST_IRQHandler               0x0800a5d4    w F        2  .text
+	SDIO_IRQHandler                    0x0800a5d4    w F        2  .text
+	SEC_IRQHandler                     0x0800a5d4    w F        2  .text
+	SPI_HS_IRQHandler                  0x0800a5d4    w F        2  .text
+	SPI_LS_IRQHandler                  0x0800a5d4    w F        2  .text
+	TIM0_5_IRQHandler                  0x0800a5d4    w F        2  .text
+	USART1_IRQHandler                  0x0800a5d4    w F        2  .text
+	USART2_IRQHandler                  0x0800a5d4    w F        2  .text
+	USART3_5_IRQHandler                0x0800a5d4    w F        2  .text
+	USART_IRQHandler                   0x0800a5d4    w F        2  .text
+	WDG_IRQHandler                     0x0800a5d4    w F        2  .text
+	default_handler                    0x0800a5d4    w F        2  .text
+	cpu_yeild                          0x0800a5e0      F        0  .text
+	vPortStartTask                     0x0800a5ea      F        0  .text
+	tspend_handler                     0x0800a61c      F        2  .text
+	__fixunsdfsi                       0x0800a680      F       56  .text
+	__udivdi3                          0x0800a6b8      F      814  .text
+	__umoddi3                          0x0800a9ec      F      800  .text
+	__extendsfdf2                      0x0800ad10      F       42  .text
+	__adddf3                           0x0800b000      F       48  .text
+	__subdf3                           0x0800b030      F       56  .text
+	__muldf3                           0x0800b06c      F      508  .text
+	__divdf3                           0x0800b26c      F      274  .text
+	__nedf2                            0x0800b384      F       56  .text
+	__gtdf2                            0x0800b3bc      F       64  .text
+	__gedf2                            0x0800b3fc      F       64  .text
+	__ltdf2                            0x0800b43c      F       56  .text
+	__ledf2                            0x0800b474      F       56  .text
+	__floatsidf                        0x0800b4ac      F      104  .text
+	__fixdfsi                          0x0800b514      F      112  .text
+	__make_dp                          0x0800b584      F       46  .text
+	__truncdfsf2                       0x0800b5b4      F       52  .text
+	__floatunsidf                      0x0800b5e8      F       86  .text
+	__muldi3                           0x0800b640      F       74  .text
+	__unpack_f                         0x0800b68c      F      120  .text
+	__make_fp                          0x0800b708      F       22  .text
+	__pack_d                           0x0800b720      F      398  .text
+	__unpack_d                         0x0800b8b0      F      228  .text
+	__fpcmp_parts_d                    0x0800b994      F      194  .text
+	__pack_f                           0x0800ba58      F      192  .text
+	__cskyvprintfsprintf               0x0800bb18      F       26  .text
+	__GI_putchar                       0x0800bb34      F       12  .text
+	putchar                            0x0800bb34    w F       12  .text
+	__cskyvprintfprintf                0x0800bb44      F       28  .text
+	__GI_puts                          0x0800bb60      F       20  .text
+	puts                               0x0800bb60    w F       20  .text
+	__cskyvprintfsnprintf              0x0800bb78      F       24  .text
+	__stdio_outs                       0x0800bb90    w F       48  .text
+	__cskyvprintfvprintf               0x0800bbc0      F       26  .text
+	__GI_fputs                         0x0800bbe4      F       74  .text
+	fputs                              0x0800bbe4    w F       74  .text
+	__cskyvprintfvsnprintf             0x0800bc70      F      102  .text
+	__memset_fast                      0x0800bcdc    w F      160  .text
+	memset                             0x0800bcdc    w F      160  .text
+	__strlen_fast                      0x0800bd7c    w F       62  .text
+	strlen                             0x0800bd7c    w F       62  .text
+	__strcpy_fast                      0x0800bdbc    w F      202  .text
+	strcpy                             0x0800bdbc    w F      202  .text
+	__GI_strstr                        0x0800be88      F       42  .text
+	strstr                             0x0800be88    w F       42  .text
+	__memcpy_fast                      0x0800beb4    w F      126  .text
+	memcpy                             0x0800beb4    w F      126  .text
+	__memcmp_fast                      0x0800bf34    w F      330  .text
+	memcmp                             0x0800bf34    w F      330  .text
+	__GI_strncmp                       0x0800c080      F       36  .text
+	strncmp                            0x0800c080    w F       36  .text
+	__GI_os_critical_open              0x0800c0a4      F        4  .text
+	os_critical_open                   0x0800c0a4    w F        4  .text
+	__GI_os_critical_enter             0x0800c0a8      F        4  .text
+	os_critical_enter                  0x0800c0a8    w F        4  .text
+	__GI_os_critical_exit              0x0800c0ac      F        4  .text
+	os_critical_exit                   0x0800c0ac    w F        4  .text
+	__GI_os_critical_close             0x0800c0b0      F        4  .text
+	os_critical_close                  0x0800c0b0    w F        4  .text
+	__GI_putc                          0x0800c0b4      F        8  .text
+	putc                               0x0800c0b4    w F        8  .text
+	__cskyvprintfvsprintf              0x0800c0bc      F       16  .text
+	__eqdf2                            0x0800c0cc      F       56  .text
+	__v2_printf                        0x0800c140      F     1824  .text
+	__v2_printf$DFHLlMOPpSSsWp         0x0800c140      F     1824  .text
+	__GI___dtostr                      0x0800c860      F     1058  .text
+	__dtostr                           0x0800c860      F     1058  .text
+	__isnan                            0x0800cc84      F       42  .text
+	__GI_strchr                        0x0800ccb0      F       18  .text
+	strchr                             0x0800ccb0    w F       18  .text
+	__GI_strerror                      0x0800ccc4      F       18  .text
+	strerror                           0x0800ccc4      F       18  .text
+	__isinf                            0x0800cce0      F       42  .text
+	main                               0x0800cd34      F       84  .text
+	irq_interrupt_entry                0x0800cd9c      F       80  .text
+	coret_irq_handler                  0x0800cdf0      F       48  .text
+	gpsec_irq_handler                  0x0800ce24      F       52  .text
+	mac_irq_handler                    0x0800ce58      F       48  .text
+	sec_irq_handler                    0x0800ce88      F       48  .text
+	cpu_init                           0x0800ceb8      F       82  .text
+	fputc                              0x0800cf18      F       10  .text
+	cxx_system_init                    0x0800cf24    w F       20  .text
+	trap_c                             0x0800cf40      F      226  .text
+	wm_os_task_create                  0x0800d088      F       52  .text
+	wm_os_task_del                     0x0800d0bc      F       10  .text
+	wm_os_get_task_name                0x0800d0c8      F       22  .text
+	wm_os_mutex_create                 0x0800d0e4      F       22  .text
+	wm_os_mutex_delete                 0x0800d0fc      F       10  .text
+	wm_os_mutex_acquire                0x0800d108      F       78  .text
+	wm_os_sem_create                   0x0800d158      F       22  .text
+	wm_os_sem_acquire                  0x0800d170      F       78  .text
+	wm_os_sem_release                  0x0800d1c0      F       78  .text
+	wm_os_mutex_release                0x0800d210      F        8  .text
+	wm_os_get_time_ms                  0x0800d218      F       10  .text
+	wm_os_set_critical                 0x0800d224      F        8  .text
+	wm_os_release_critical             0x0800d22c      F        8  .text
+	wm_os_init                         0x0800d234      F       12  .text
+	wm_os_start_scheduler              0x0800d244      F        8  .text
+	csi_kernel_intrpt_enter            0x0800d24c      F        4  .text
+	csi_kernel_intrpt_exit             0x0800d250      F       14  .text
+	wm_vsnprintf                       0x0800e6b4      F       22  .text
+	wm_printf                          0x0800e6d0      F       46  .text
+	tls_sys_reset                      0x0800e7f0      F       34  .text
+	tls_pmu_clk_select                 0x0800e81c      F       30  .text
+	tls_sys_clk_set                    0x0800e83c      F      108  .text
+	wm_start                           0x0800e8b4      F      210  .text
+	tls_irq_enable                     0x0800ea40      F       26  .text
+	CRYPTION_IRQHandler                0x0800ea60      F       22  .text
+	tls_crypto_md5_init                0x0800ea7c      F       66  .text
+	tls_crypto_md5_update              0x0800ead4      F       92  .text
+	tls_crypto_md5_final               0x0800eb30      F      210  .text
+	wm_stub_drv_md5                    0x0800ec08      F       40  .text
+	set_printf_port                    0x0800ec30      F       22  .text
+	sendchar                           0x0800ec4c      F       94  .text
+	soc_init                           0x0800ecb4      F       30  .text
+	elog_start                         0x0800ecd8      F       18  .text
+	elog_output_lock                   0x0800ecf0      F       30  .text
+	elog_output_unlock                 0x0800ed14      F       30  .text
+	elog_output                        0x0800ed38      F      700  .text
+	elog_set_fmt                       0x0800f03c      F       80  .text
+	elog_set_filter_lvl                0x0800f0a8      F       74  .text
+	elog_get_filter_tag_lvl            0x0800f110      F      136  .text
+	elog_output_lock_enabled           0x0800f22c      F       44  .text
+	elog_init                          0x0800f25c      F       90  .text
+	elog_strcpy                        0x0800f2bc      F      152  .text
+	elog_port_init                     0x0800f370      F       24  .text
+	elog_port_output                   0x0800f390      F       12  .text
+	elog_port_output_lock              0x0800f3a0      F       16  .text
+	elog_port_output_unlock            0x0800f3b4      F       12  .text
+	elog_port_get_time                 0x0800f3c4      F       32  .text
+	elog_port_get_p_info               0x0800f3ec      F        4  .text
+	elog_port_get_t_info               0x0800f3f4      F        8  .text
+	wm_log_init                        0x0800f3fc      F       78  .text
+	wm_heap_get_free_heap_size         0x0800f490      F        6  .text
+	wm_heap_caps_alloc_tracing         0x0800f49c      F      386  .text
+	wm_heap_caps_free                  0x0800f638      F      180  .text
+	wm_heap_init                       0x0800f6fc      F      204  .text
+	wm_hal_fls_read                    0x0800f8ac      F      396  .text
+	wm_hal_fls_info                    0x0800fa50      F       62  .text
+	wm_hal_fls_init                    0x0800faa4      F      350  .text
+	wm_hal_irq_init                    0x0800fc30      F       32  .text
+	wm_hal_irq_attach_hw_vector        0x0800fc58      F       52  .text
+	wm_hal_irq_clear_pending           0x0800fca0      F       26  .text
+	wm_hal_irq_set_wakeup              0x0800fcc0      F       24  .text
+	wm_set_reboot_reason               0x0800fcdc      F        6  .text
+	wm_get_reboot_reason               0x0800fce8      F       14  .text
+	wm_output_ramdump                  0x0800fcfc      F      132  .text
+	wm_partition_table_init            0x0800fd8c      F      346  .text
+	vListInitialise                    0x0800ff14      F       20  .text
+	vListInitialiseItem                0x0800ff28      F        6  .text
+	vListInsertEnd                     0x0800ff30      F       24  .text
+	vListInsert                        0x0800ff48      F       50  .text
+	uxListRemove                       0x0800ff7c      F       34  .text
+	xQueueGenericReset                 0x080100c4      F      128  .text
+	xQueueGenericCreateStatic          0x0801014c      F      170  .text
+	xQueueGenericCreate                0x08010200      F      120  .text
+	xQueueCreateCountingSemaphore      0x08010280      F       64  .text
+	xQueueGenericSend                  0x080102c8      F      356  .text
+	xQueueCreateMutex                  0x0801044c      F       22  .text
+	xQueueGenericSendFromISR           0x08010464      F      200  .text
+	xQueueGiveFromISR                  0x08010534      F      184  .text
+	xQueueReceive                      0x080105f4      F      322  .text
+	xQueueSemaphoreTake                0x08010740      F      398  .text
+	xQueueReceiveFromISR               0x080108d8      F      170  .text
+	vQueueDelete                       0x0801098c      F       38  .text
+	vQueueWaitForMessageRestricted     0x080109bc      F       74  .text
+	xTaskCreateStatic                  0x08010ce8      F      136  .text
+	xTaskCreate                        0x08010d78      F      110  .text
+	vTaskDelete                        0x08010dec      F      142  .text
+	vTaskStartScheduler                0x08010ea0      F      106  .text
+	vTaskSuspendAll                    0x08010f28      F       10  .text
+	xTaskGetTickCount                  0x08010f38      F        6  .text
+	xTaskGetTickCountFromISR           0x08010f44      F        6  .text
+	pcTaskGetName                      0x08010f50      F       36  .text
+	xTaskIncrementTick                 0x08010f80      F      254  .text
+	xTaskResumeAll                     0x080110b4      F      208  .text
+	vTaskDelay                         0x080111ac      F       70  .text
+	vTaskSwitchContext                 0x08011200      F      148  .text
+	vTaskPlaceOnEventList              0x080112b0      F       46  .text
+	vTaskPlaceOnEventListRestricted    0x080112ec      F       56  .text
+	xTaskRemoveFromEventList           0x08011330      F      110  .text
+	vTaskInternalSetTimeOutState       0x080113c0      F       14  .text
+	xTaskCheckForTimeOut               0x080113d8      F      126  .text
+	vTaskMissedYield                   0x08011468      F        8  .text
+	xTaskGetSchedulerState             0x08011474      F       24  .text
+	xTaskPriorityInherit               0x08011494      F      120  .text
+	xTaskPriorityDisinherit            0x08011518      F      124  .text
+	vTaskPriorityDisinheritAfterTimeout0x080115a8      F      142  .text
+	pvTaskIncrementMutexHeldCount      0x0801164c      F       20  .text
+	xTimerCreateTimerTask              0x08011718      F       88  .text
+	xTimerCreate                       0x08011788      F       88  .text
+	xTimerGenericCommand               0x080117e4      F       96  .text
+	xPortSysTickHandler                0x08011af8      F       28  .text
+	pxPortInitialiseStack              0x08011b14      F      362  .text
+	xPortStartScheduler                0x08011cf8      F       16  .text
+	cpu_intrpt_save                    0x08011d0c      F       14  .text
+	vPortEnterCritical                 0x08011d20      F        8  .text
+	vPortExitCritical                  0x08011d28      F       34  .text
+	vApplicationGetIdleTaskMemory      0x08011d50      F       16  .text
+	vApplicationGetTimerTaskMemory     0x08011d68      F       16  .text
+	vApplicationStackOverflowHook      0x08011d80      F       14  .text
+	vApplicationIdleHook               0x08011d94      F        6  .text
+	vPortCleanUpTCB                    0x08011d9c      F        2  .text
+	pvPortMallocTracing                0x08011da0      F       14  .text
+	vPortFree                          0x08011db0      F        8  .text
+	wm_drv_fls_read                    0x08011db8      F       76  .text
+	wm_drv_fls_info                    0x08011e18      F       62  .text
+	wm_drv_fls_init                    0x08011e58      F       66  .text
+	uart0_irq_handler                  0x08011eb0      F       40  .text
+	uart1_irq_handler                  0x08011ee0      F       44  .text
+	wm_drv_uart_getc                   0x08011f10      F       44  .text
+	wm_drv_uart_putc                   0x08011f40      F       34  .text
+	wm_drv_uart_write                  0x08011f68      F       28  .text
+	__etext                            0x08011f90               0  .text
+	__srodata                          0x08011f90               0  .rodata
+	__thenan_df                        0x08011f90      O       20  .rodata
+	__clz_tab                          0x08011fa4      O      256  .rodata
+	HZ                                 0x08012b9c      O        4  .rodata
+	__ctor_end__                       0x08013464               0  .rodata
+	__ctor_start__                     0x08013464               0  .rodata
+	__dtor_end__                       0x08013464               0  .rodata
+	__erodata                          0x08013464               0  .rodata
+	__vdata_start__                    0x20000000               0  .vdata
+	irq_vectors                        0x20000000      O      256  .vdata
+	__vdata_end__                      0x20000100               0  .vdata
+	irq_vectors_end                    0x20000100               0  .vdata
+	__data_start__                     0x20000100               0  .data
+	__sdata                            0x20000100               0  .data
+	data_start                         0x20000100               0  .data
+	stderr                             0x20000100      O        4  .data
+	stdout                             0x20000120      O        4  .data
+	stdin                              0x20000140      O        4  .data
+	wm_soc_memory                      0x20000160      O      128  .data
+	wm_soc_memory_count                0x200001e0      O        4  .data
+	__data_end__                       0x2000023c               0  .data
+	__edata                            0x2000023c               0  .data
+	__start_cmd                        0x2000023c               0  .data
+	__start_init_call                  0x2000023c               0  .data
+	__stop_cmd                         0x2000023c               0  .data
+	__stop_init_call                   0x2000023c               0  .data
+	__bss_start__                      0x2000023c               0  .bss
+	__sbss                             0x2000023c               0  .bss
+	g_intstackalloc                    0x2000023c               0  .bss
+	g_intstackbase                     0x2000023c               0  .bss
+	g_top_irqstack                     0x2000123c               0  .bss
+	g_trapstackalloc                   0x2000123c               0  .bss
+	g_trapstackbase                    0x2000123c               0  .bss
+	g_top_trapstack                    0x2000143c               0  .bss
+	g_trap_sp                          0x2000143c      O        4  .bss
+	g_sw_irq_vector                    0x20001440      O      256  .bss
+	g_crypto_ctx                       0x20001540      O        8  .bss
+	pxCurrentTCB                       0x20001a94      O        4  .bss
+	elog_assert_hook                   0x200031d8      O        4  .bss
+	errno                              0x200031dc      O        4  .bss
+	__malloc_lock                      0x200031e0      O        4  .bss
+	__bss_end__                        0x200031e4               0  .bss
+	__ebss                             0x200031e4               0  .bss
+	__end                              0x200031e4               0  .bss
+	end                                0x200031e4               0  .bss
+	_eshram                            0x20028000               0  ._shared_ram_
+	_sshram                            0x20028000               0  ._shared_ram_
+
+	(w:Weak    d:Deubg    F:Function    f:File name    O:Zero)
+
+
+======================================================================
+
+Memory Map of the image
+
+    Image Entry point : 0x0800a500
+
+    Region VRAM (Base: 0x20000000, Size: 0x00000000, Max: 0x00000100)
+
+    Region SRAM (Base: 0x20000100, Size: 0x000030e4, Max: 0x00027f00)
+
+    Base Addr    Size         Type   Attr      Idx   Section Name       Object
+    0x20000100   0x00000060   Data   RW       1569  .data          	stdinit.o
+    0x20000160   0x00000080   Data   RW        360  .data.wm_soc_memory	memory_layout.c.obj
+    0x200001e0   0x00000004   Data   RW        361  .data.wm_soc_memory_count	memory_layout.c.obj
+    0x200001e4   0x00000004   Data   RW       1208  .data.uxCriticalNesting	port.c.obj
+    0x200001e8   0x00000054   Data   RW       1311  .data.uart_contexts	wm_drv_uart.c.obj
+    0x2000023c   0x00001000   Zero   RW        134  .bss           	startup.S.obj
+    0x2000123c   0x00000204   Zero   RW        145  .bss           	vectors.S.obj
+    0x20001440   0x00000100   Zero   RW         60  .bss.g_sw_irq_vector	isr.c.obj
+    0x20001540   0x00000008   Zero   RW        341  .bss.g_crypto_ctx	wm_stub_drv.c.obj
+    0x20001548   0x00000001   Zero   RW        378  .bss.printf_port	printf_port.c.obj
+    0x20001549   0x00000003   PAD
+    0x2000154c   0x000000f8   Zero   RW        511  .bss.elog      	elog.c.obj
+    0x20001644   0x00000400   Zero   RW        512  .bss.log_buf   	elog.c.obj
+    0x20001a44   0x00000004   Zero   RW        602  .bss.elog_lock 	elog_port.c.obj
+    0x20001a48   0x00000010   Zero   RW        603  .bss.elog_timestr.5626	elog_port.c.obj
+    0x20001a58   0x00000018   Zero   RW        657  .bss.heap_used_block_list	wm_heap.c.obj
+    0x20001a70   0x00000014   Zero   RW        658  .bss.wm_heaps  	wm_heap.c.obj
+    0x20001a84   0x00000004   Zero   RW        692  .bss.wm_hal_fls_dev	wm_hal_fls.c.obj
+    0x20001a88   0x00000004   Zero   RW        849  .bss.g_partition_table_addr	wm_partition_table.c.obj
+    0x20001a8c   0x00000004   Zero   RW        850  .bss.g_partition_table_count	wm_partition_table.c.obj
+    0x20001a90   0x00000001   Zero   RW        851  .bss.g_partition_table_verified	wm_partition_table.c.obj
+    0x20001a91   0x00000003   PAD
+    0x20001a94   0x00000004   Zero   RW       1096  .bss.pxCurrentTCB	tasks.c.obj
+    0x20001a98   0x00000004   Zero   RW       1097  .bss.pxDelayedTaskList	tasks.c.obj
+    0x20001a9c   0x00000004   Zero   RW       1098  .bss.pxOverflowDelayedTaskList	tasks.c.obj
+    0x20001aa0   0x00000140   Zero   RW       1099  .bss.pxReadyTasksLists	tasks.c.obj
+    0x20001be0   0x00000004   Zero   RW       1100  .bss.uxCurrentNumberOfTasks	tasks.c.obj
+    0x20001be4   0x00000004   Zero   RW       1101  .bss.uxDeletedTasksWaitingCleanUp	tasks.c.obj
+    0x20001be8   0x00000004   Zero   RW       1102  .bss.uxSchedulerSuspended	tasks.c.obj
+    0x20001bec   0x00000004   Zero   RW       1103  .bss.uxTaskNumber	tasks.c.obj
+    0x20001bf0   0x00000004   Zero   RW       1104  .bss.uxTopReadyPriority	tasks.c.obj
+    0x20001bf4   0x00000014   Zero   RW       1105  .bss.xDelayedTaskList1	tasks.c.obj
+    0x20001c08   0x00000014   Zero   RW       1106  .bss.xDelayedTaskList2	tasks.c.obj
+    0x20001c1c   0x00000004   Zero   RW       1107  .bss.xNextTaskUnblockTime	tasks.c.obj
+    0x20001c20   0x00000004   Zero   RW       1108  .bss.xNumOfOverflows	tasks.c.obj
+    0x20001c24   0x00000004   Zero   RW       1109  .bss.xPendedTicks	tasks.c.obj
+    0x20001c28   0x00000014   Zero   RW       1110  .bss.xPendingReadyList	tasks.c.obj
+    0x20001c3c   0x00000004   Zero   RW       1111  .bss.xSchedulerRunning	tasks.c.obj
+    0x20001c40   0x00000014   Zero   RW       1112  .bss.xSuspendedTaskList	tasks.c.obj
+    0x20001c54   0x00000014   Zero   RW       1113  .bss.xTasksWaitingTermination	tasks.c.obj
+    0x20001c68   0x00000004   Zero   RW       1114  .bss.xTickCount	tasks.c.obj
+    0x20001c6c   0x00000004   Zero   RW       1115  .bss.xYieldPending	tasks.c.obj
+    0x20001c70   0x00000004   Zero   RW       1159  .bss.pxCurrentTimerList	timers.c.obj
+    0x20001c74   0x00000004   Zero   RW       1160  .bss.pxOverflowTimerList	timers.c.obj
+    0x20001c78   0x00000800   Zero   RW       1161  .bss.ucStaticTimerQueueStorage.5571	timers.c.obj
+    0x20002478   0x00000014   Zero   RW       1162  .bss.xActiveTimerList1	timers.c.obj
+    0x2000248c   0x00000014   Zero   RW       1163  .bss.xActiveTimerList2	timers.c.obj
+    0x200024a0   0x00000004   Zero   RW       1164  .bss.xLastTime.5520	timers.c.obj
+    0x200024a4   0x00000050   Zero   RW       1165  .bss.xStaticTimerQueue.5570	timers.c.obj
+    0x200024f4   0x00000004   Zero   RW       1166  .bss.xTimerQueue	timers.c.obj
+    0x200024f8   0x00000004   Zero   RW       1167  .bss.xTimerTaskHandle	timers.c.obj
+    0x200024fc   0x00000400   Zero   RW       1203  .bss.uxIdleTaskStack.5439	port.c.obj
+    0x200028fc   0x00000800   Zero   RW       1204  .bss.uxTimerTaskStack.5446	port.c.obj
+    0x200030fc   0x0000006c   Zero   RW       1205  .bss.xIdleTaskTCB.5438	port.c.obj
+    0x20003168   0x0000006c   Zero   RW       1206  .bss.xTimerTaskTCB.5445	port.c.obj
+    0x200031d4   0x00000004   Zero   RW       1246  .bss.g_drv_fls_lock	wm_drv_fls.c.obj
+    0x200031d8   0x00000004   Zero   RW        543  COMMON         	elog.c.obj
+    0x200031dc   0x00000008   Zero   RW       1688  COMMON         	minilibc_init.o
+
+    Region DRAM (Base: 0x20028000, Size: 0x00000000, Max: 0x0001fffc)
+
+    Region *default* (Base: 0x00000000, Size: 0x00000000, Max: 0xffffffff)
+
+
+======================================================================
+
+Image component sizes
+
+       Code    RO Data    RW Data    ZI Data      Debug   Object Name
+
+          0          0          0          0          0   linker stubs
+          0          0          0          0          0   CMakeFiles/test.elf.dir/project/project_elf_src.c.obj
+	------------------------------------------------------------
+          0          0          0          0          0   Object Totals
+        102          6          0          6          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/main/libmain.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        144         59          0          0      52347   main.c.obj
+	------------------------------------------------------------
+        144         59          0          0      52347   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/xt804/libxt804.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        284          0          0        256      20999   isr.c.obj
+         96          0          0          0      55326   cpu_init.c.obj
+         38          0          0          0      17652   libc_port.c.obj
+        304        474          0          0      18747   trap_c.c.obj
+        144          0          0       4096        356   startup.S.obj
+         80          0          0        516        328   vectors.S.obj
+	------------------------------------------------------------
+        946        474          0       4868     113408   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_system/libwm_system.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        478          7          0          0      84688   wm_osal.c.obj
+       5276         98          0          0      40014   wm_printf.c.obj
+        662        133          0          0      89903   wm_system.c.obj
+	------------------------------------------------------------
+       6416        238          0          0     214605   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_stub/libwm_stub.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        660          0          0          8      76130   wm_stub_drv.c.obj
+	------------------------------------------------------------
+        660          0          0          8      76130   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_soc/libwm_soc.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+          0         10        132          0      19027   memory_layout.c.obj
+        132          0          0          1      41221   printf_port.c.obj
+         36          0          0          0      43098   soc_init.c.obj
+          0          0          0          0          0   wm_ll_pwm.c.obj
+	------------------------------------------------------------
+        168         10        132          1     103346   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_log/libwm_log.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+       1508        300          0       1276      30491   elog.c.obj
+          0          0          0          0          0   elog_async.c.obj
+          0          0          0          0          0   elog_buf.c.obj
+        180        100          0          0      22281   elog_utils.c.obj
+        140        119          0         20      62290   elog_port.c.obj
+         78          0          0          0      22359   wm_log.c.obj
+	------------------------------------------------------------
+       1906        519          0       1296     137421   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_heap/libwm_heap.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        912         87          0         44      40533   wm_heap.c.obj
+	------------------------------------------------------------
+        912         87          0         44      40533   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_hal/libwm_hal.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+       1092        277          0          4      74430   wm_hal_fls.c.obj
+        188         92          0          0      31574   wm_hal_irq.c.obj
+	------------------------------------------------------------
+       1280        369          0          4     106004   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_debug/libwm_debug.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        176         15          0          0      21525   wm_debug.c.obj
+	------------------------------------------------------------
+        176         15          0          0      21525   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/wm_common/libwm_common.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+          0          0          0          0          0   getopt_long_only.c.obj
+          0          0          0          0          0   wm_utils.c.obj
+	------------------------------------------------------------
+          0          0          0          0          0   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/partition_table/libpartition_table.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        392        242          0          9      44188   wm_partition_table.c.obj
+	------------------------------------------------------------
+        392        242          0          9      44188   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/freertos/libfreertos.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+          0          0          0          0          0   croutine.c.obj
+          0          0          0          0          0   event_groups.c.obj
+        134          0          0          0      46066   list.c.obj
+       2656         83          0          0      72314   queue.c.obj
+          0          0          0          0          0   stream_buffer.c.obj
+       3164         71          0        476      84090   tasks.c.obj
+       1172        115          0       2188      65277   timers.c.obj
+        698         31          4       3288      59616   port.c.obj
+        160          0          0          0        390   cpu_task_sw.S.obj
+	------------------------------------------------------------
+       7984        300          4       5952     327753   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: components/driver/libdriver.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        246        135          0          4      69757   wm_drv_fls.c.obj
+          0          0          0          0          0   wm_drv_irq.c.obj
+        212          0         84          0      67897   wm_drv_uart.c.obj
+	------------------------------------------------------------
+        458        135         84          4     137654   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: d:/winnermicro/wmclics/toolchain/csky-elfabiv2-tools/bin/../lib/gcc/csky-elfabiv2/6.3.0/ck803/hard-fp\libgcc.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         56          0          0          0          0   _fixunsdfsi.o
+        820          0          0          0          0   _udivdi3.o
+        804          0          0          0          0   _umoddi3.o
+         42          0          0          0          0   _sf_to_df.o
+        816          0          0          0          0   _addsub_df.o
+        512          0          0          0          0   _mul_df.o
+        280          0          0          0          0   _div_df.o
+         56          0          0          0          0   _ne_df.o
+         64          0          0          0          0   _gt_df.o
+         64          0          0          0          0   _ge_df.o
+         56          0          0          0          0   _lt_df.o
+         56          0          0          0          0   _le_df.o
+        104          0          0          0          0   _si_to_df.o
+        112          0          0          0          0   _df_to_si.o
+         46          0          0          0          0   _make_df.o
+         52          0          0          0          0   _df_to_sf.o
+          0         20          0          0          0   _thenan_df.o
+         86          0          0          0          0   _usi_to_df.o
+         74          0          0          0          0   _muldi3.o
+          0        256          0          0          0   _clz.o
+        124          0          0          0          0   _unpack_sf.o
+         22          0          0          0          0   _make_sf.o
+        398          0          0          0          0   _pack_df.o
+        228          0          0          0          0   _unpack_df.o
+        194          0          0          0          0   _fpcmp_parts_df.o
+        192          0          0          0          0   _pack_sf.o
+	------------------------------------------------------------
+       5258        276          0          0          0   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: d:/winnermicro/wmclics/toolchain/csky-elfabiv2-tools/bin/../lib/gcc/csky-elfabiv2/6.3.0/../../../../csky-elfabiv2/lib/ck803/hard-fp\libc.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+          0          0          0          0          0   tolower.o
+          0          0          0          0          0   isspace.o
+         26          0          0          0          0   sprintf_required.o
+         16          0          0          0          0   putchar.o
+         28          0          0          0          0   printf_required.o
+         24          0          0          0          0   puts.o
+         24          0          0          0          0   snprintf_required.o
+         84          0          0          0          0   vprintf_required.o
+          0          0         96          0          0   stdinit.o
+          0          0          0          0          0   fprintf_required.o
+         74          0          0          0          0   fputs.o
+          0          0          0          0          0   vfprintf_required.o
+        172          0          0          0          0   vsnprintf_required.o
+          0          0          0          0          0   strtod.o
+          0          0          0          0          0   strtof.o
+          0          0          0          0          0   strcmp_fast.o
+        160          0          0          0          0   memset_fast.o
+         62          0          0          0          0   strlen_fast.o
+          0          0          0          0          0   memmove_fast.o
+        202          0          0          0          0   strcpy_fast.o
+         42          0          0          0          0   strstr.o
+        126          0          0          0          0   memcpy_fast.o
+          0          0          0          0          0   strncpy.o
+        330          0          0          0          0   memcmp_fast.o
+         36          0          0          0          0   strncmp.o
+          0          0          0          0          0   memchr.o
+          0          0          0          0          0   isdigit.o
+          0          0          0          8          0   minilibc_init.o
+         16          0          0          0          0   critical.o
+          0          0          0          0          0   fwrite.o
+          8          0          0          0          0   putc.o
+         16          0          0          0          0   vsprintf_required.o
+          0          0          0          0          0   abs.o
+       1884         66          0          0          0   __v2_printfDFHLlMOPpSSsWp.o
+       1058          0          0          0          0   __dtostr.o
+         42          0          0          0          0   __isnan.o
+         18          0          0          0          0   strchr.o
+         28       2624          0          0          0   strerror.o
+         42          0          0          0          0   __isinf.o
+	------------------------------------------------------------
+       4518       2690         96          8          0   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+    [Library Name]: d:/winnermicro/wmclics/toolchain/csky-elfabiv2-tools/bin/../lib/gcc/csky-elfabiv2/6.3.0/ck803/hard-fp\libgcc.a
+	------------------------------------------------------------
+       Code    RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         56          0          0          0          0   _eq_df.o
+	------------------------------------------------------------
+         56          0          0          0          0   Library Totals
+          0          0          0          0          0   Pad
+          0          0          0          0          0   LD_GEN
+
+	------------------------------------------------------------
+
+======================================================================
+
+
+       Code    RO Data    RW Data    ZI Data      Debug
+      31376       5420        316      12200    1374914   Grand Totals
+      31376       5420        316      12200    1374914   Elf Image Totals
+      31376       5420        316          0          0   ROM Totals
+
+======================================================================
+
+Total	RO	Size (Code + RO Data)				36796 (  35.93kB)
+Total	RW	Size (RW Data + ZI Data)			12516 (  12.22kB)
+Total	ROM	Size (Code + RO Data + RW Data)		37112 (  36.24kB)
+
+======================================================================

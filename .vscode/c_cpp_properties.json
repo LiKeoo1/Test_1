@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "includePath": [
+                "${workspaceFolder}/**",
+                "d:/winnermicro/wmclics/wm_iot_sdk/components/**"
+            ],
+            "intelliSenseMode": "windows-msvc-x64",
+            "compilerPath": "D:\\WorkSoftware\\MinGW\\mingw64\\bin\\gcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}
